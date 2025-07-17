@@ -23,6 +23,9 @@ alias cld="claude"
 alias ccmp="cargo compete"
 alias t="tmux"
 alias cm="chezmoi"
+alias la="ls -a"
+alias ll="ls -lah"
+
 
 # homebrew setup
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
