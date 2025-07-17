@@ -1,3 +1,0 @@
-0000000000000000000000000000000000000000 260bf1b01aa95fbd5997f1ab324e4805ebeab3a0 kotek <kotek@kotek-thinkpad.> 1744817269 +0900	clone: from https://github.com/kotek-7/nvim
-260bf1b01aa95fbd5997f1ab324e4805ebeab3a0 33cf5701dc625f7327dfac80ea81560f780cce74 kotek <scpktk@gmail.com> 1744898714 +0900	commit: Add support for override options
-33cf5701dc625f7327dfac80ea81560f780cce74 407acb6a98ae051290aef275e09d546e1bb79572 kotek <scpktk@gmail.com> 1744898820 +0900	commit: change gitignore
