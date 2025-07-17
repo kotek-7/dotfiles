@@ -1,0 +1,8 @@
+0000000000000000000000000000000000000000 260bf1b01aa95fbd5997f1ab324e4805ebeab3a0 kotek <kotek@kotek-thinkpad.> 1744817269 +0900	clone: from https://github.com/kotek-7/nvim
+260bf1b01aa95fbd5997f1ab324e4805ebeab3a0 33cf5701dc625f7327dfac80ea81560f780cce74 kotek <scpktk@gmail.com> 1744898714 +0900	commit: Add support for override options
+33cf5701dc625f7327dfac80ea81560f780cce74 407acb6a98ae051290aef275e09d546e1bb79572 kotek <scpktk@gmail.com> 1744898820 +0900	commit: change gitignore
+407acb6a98ae051290aef275e09d546e1bb79572 c76376dd77f35a3071b07d5985f445d29608dc12 kotek <scpktk@gmail.com> 1745567740 +0900	checkout: moving from main to slim
+c76376dd77f35a3071b07d5985f445d29608dc12 269372dde8ff058a578c1f4416ce617316736fa2 kotek <scpktk@gmail.com> 1745569310 +0900	commit: add os switch
+269372dde8ff058a578c1f4416ce617316736fa2 06af37c28fccf6908e37afed8aa0c2bf900773e3 kotek <scpktk@gmail.com> 1747903518 +0900	commit: edit
+06af37c28fccf6908e37afed8aa0c2bf900773e3 24272f2ce77ea6f8fc8e5ea2f517930b5b13347b kotek <scpktk@gmail.com> 1747905918 +0900	pull: Fast-forward
+24272f2ce77ea6f8fc8e5ea2f517930b5b13347b 1d9223dd79fdf63de52c01bb3bfcbfb51e533b6a kotek <scpktk@gmail.com> 1751802108 +0900	pull: Fast-forward
