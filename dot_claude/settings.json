@@ -1,0 +1,37 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/mnt/c/users/kotek/apps/toast/toast64.exe --app-id 'Claude Code' --title 'Command Execution' --message 'Executing bash command...' --icon 'C:\\Windows\\System32\\cmd.exe' --audio 'default' --duration 'short'"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/mnt/c/Users/kotek/apps/toast/toast64.exe --app-id 'Claude Code' --title 'Notification' --message 'Claude Code has a notification for you.' --icon 'C:\\Windows\\System32\\imageres.dll,1' --audio 'default' --duration 'long'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/mnt/c/Users/kotek/apps/toast/toast64.exe --app-id 'Claude Code' --title 'Task Complete' --message 'Claude Code has finished the task.' --icon 'C:\\Windows\\System32\\imageres.dll,77' --audio 'default' --duration 'long'"
+          }
+        ]
+      }
+    ]
+  }
+}
