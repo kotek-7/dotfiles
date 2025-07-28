@@ -1,1 +1,1 @@
-現在のすべての変更を、または指定された変更を、適切なコミットメッセージとともにgit commitして
+Analyze current unstaged changes. Then stage and commit them with a proper commit message.
