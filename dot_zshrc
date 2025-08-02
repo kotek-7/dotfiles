@@ -8,8 +8,8 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # path
-path+=("/mnt/c/Users/kotek/AppData/Local/Programs/cursor/resources/app/bin")
 path+=("/mnt/c/Users/kotek/AppData/Local/Programs/Microsoft VS Code/bin");
+path+=("/mnt/c/Users/kotek/AppData/Local/Programs/cursor/resources/app/bin")
 path+=("/usr/lib/x86_64-linux-gnu/pkgconfig");
 path+=("/usr/local/texlive/2024/bin/x86_64-linux");
 path+=("/snap/bin");
@@ -28,6 +28,11 @@ alias cm="chezmoi"
 alias la="ls -a"
 alias ll="ls -lah"
 
+# disable ctrl-d
+function do_nothing(){}
+zle -N do_nothing
+bindkey "^D" do_nothing
+setopt IGNORE_EOF
 
 # homebrew setup
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
