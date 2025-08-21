@@ -139,3 +139,15 @@
 - 将来の拡張性や変更容易性を考慮した設計提案
 - 関連するツールやライブラリの適切な選択肢の提示
 - コードの可読性とメンテナンス性を重視した実装方針
+
+
+# 資料
+## プログラムに加えるコメントの記述ガイドライン
+@docs/comments-writing-guideline.md
+
+## Google API Improvement Proposals
+@docs/google-aip/naming-conventions.md                                                                                                                                                                                            standard-methods-create.md
+@docs/google-aip/standard-methods-delete.md
+@docs/google-aip/standard-methods-get.md
+@docs/google-aip/standard-methods-list.md
+@docs/google-aip/standard-methods-update.md

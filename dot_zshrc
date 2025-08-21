@@ -51,3 +51,6 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+
+# mise activate
+eval "$(~/.local/bin/mise activate zsh)"
