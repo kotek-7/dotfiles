@@ -1,0 +1,1 @@
+projects = { "/home/kotek/dev/nextjs/minpuzz" = { trust_level = "trusted" } , "/home/kotek/dev/nextjs/minpuzz/backend" = { trust_level = "trusted" } }
