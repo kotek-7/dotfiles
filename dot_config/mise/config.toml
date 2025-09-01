@@ -10,6 +10,7 @@ cmake = "latest"
 "github:sharkdp/bat" = "latest"
 pnpm = "latest"
 rust = "latest"
+tmux = "latest"
 usage = "latest"
 
 [settings]
