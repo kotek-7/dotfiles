@@ -29,6 +29,16 @@ alias cm="chezmoi"
 alias la="ls -a"
 alias ll="ls -lah"
 
+if command -v eza >/dev/null 2>&1; then
+  alias ls="eza"
+fi
+if command -v eza >/dev/null 2>&1; then
+  alias la="eza -a"
+fi
+if command -v eza >/dev/null 2>&1; then
+  alias ll="eza -lah --icons"
+fi
+
 # disable ctrl-d
 function do_nothing(){}
 zle -N do_nothing
