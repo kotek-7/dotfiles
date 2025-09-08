@@ -14,6 +14,7 @@ path+=("/mnt/c/Users/kotek/AppData/Local/Programs/cursor/resources/app/bin")
 path+=("/usr/lib/x86_64-linux-gnu/pkgconfig");
 path+=("/usr/local/texlive/2024/bin/x86_64-linux");
 path+=("/snap/bin");
+path+=("/home/kotek/.bun/bin")
 
 # env
 export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
@@ -45,13 +46,11 @@ zle -N do_nothing
 bindkey "^D" do_nothing
 setopt IGNORE_EOF
 
+# mise activate
+eval "$(~/.local/bin/mise activate zsh)"
+
 # homebrew setup
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-# pyenv setup
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
 
 # zoxide setup
 eval "$(zoxide init zsh)"
@@ -62,6 +61,3 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-
-# mise activate
-eval "$(~/.local/bin/mise activate zsh)"
