@@ -18,6 +18,7 @@ pnpm = "latest"
 rust = "latest"
 tmux = "latest"
 usage = "latest"
+uv = "latest"
 
 [settings]
 experimental = true

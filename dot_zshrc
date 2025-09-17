@@ -11,6 +11,7 @@ source $ZSH/oh-my-zsh.sh
 # path
 path+=("/mnt/c/Users/kotek/AppData/Local/Programs/Microsoft VS Code/bin");
 path+=("/mnt/c/Users/kotek/AppData/Local/Programs/cursor/resources/app/bin")
+path+=("/mnt/c/Users/kotek/.platformio/penv/Scripts")
 path+=("/usr/lib/x86_64-linux-gnu/pkgconfig");
 path+=("/usr/local/texlive/2024/bin/x86_64-linux");
 path+=("/snap/bin");
@@ -30,13 +31,16 @@ alias cm="chezmoi"
 alias la="ls -a"
 alias ll="ls -lah"
 
-if command -v eza >/dev/null 2>&1; then
+if command -v eza &>/dev/null
+then
   alias ls="eza"
 fi
-if command -v eza >/dev/null 2>&1; then
+if command -v eza &>/dev/null
+then
   alias la="eza -a"
 fi
-if command -v eza >/dev/null 2>&1; then
+if command -v eza &>/dev/null
+then
   alias ll="eza -lah --icons"
 fi
 

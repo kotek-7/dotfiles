@@ -1,2 +1,5 @@
 [projects."/home/kotek/dev/hono/matching-test"]
 trust_level = "trusted"
+
+[projects."/home/kotek/dev/starup/archaive-pj"]
+trust_level = "trusted"
