@@ -12,6 +12,7 @@ source $ZSH/oh-my-zsh.sh
 path+=("/mnt/c/Users/kotek/AppData/Local/Programs/Microsoft VS Code/bin");
 path+=("/mnt/c/Users/kotek/AppData/Local/Programs/cursor/resources/app/bin")
 path+=("/mnt/c/Users/kotek/.platformio/penv/Scripts")
+path+=("/mnt/c/program files/powershell/7/")
 path+=("/usr/lib/x86_64-linux-gnu/pkgconfig");
 path+=("/usr/local/texlive/2024/bin/x86_64-linux");
 path+=("/snap/bin");
@@ -23,6 +24,7 @@ export EDITOR=nvim
 
 # alias
 alias coda="code ."
+alias codaw="pwsh.exe -Command code ."
 alias cld="claude"
 alias ccmp="cargo compete"
 alias t="tmux"
