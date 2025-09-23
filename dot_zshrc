@@ -32,6 +32,7 @@ alias pn="pnpm"
 alias cm="chezmoi"
 alias la="ls -a"
 alias ll="ls -lah"
+alias pio="pwsh.exe -Command 'C:/Users/kotek/.platformio/penv/Scripts/pio.exe'"
 
 if command -v eza &>/dev/null
 then

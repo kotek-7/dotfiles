@@ -3,3 +3,6 @@ trust_level = "trusted"
 
 [projects."/home/kotek/dev/starup/archaive-pj"]
 trust_level = "trusted"
+
+[projects."/mnt/c/Users/kotek/dev/platformio/catchrobo_2025_dcmd"]
+trust_level = "trusted"
