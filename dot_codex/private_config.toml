@@ -12,24 +12,8 @@ trust_level = "trusted"
 [projects."/home/kotek/dev/c/eduterm"]
 trust_level = "trusted"
 
-[projects."/home/kotek/dev/slidev/talks"]
-trust_level = "trusted"
-
-[projects."/home/kotek/dev/js/kaigisitsu"]
-trust_level = "trusted"
-
-[projects."/home/kotek/dev/slidev/talks_ga"]
-trust_level = "trusted"
-
-[projects."/home/kotek/dev/react"]
-trust_level = "trusted"
-
-[projects."/home/kotek/dev/kansai-robocon/harurobo-2026-score-tool"]
-trust_level = "trusted"
-
-[projects."/home/kotek/dev/express/expressjs-template"]
+[projects."/Users/suzuki.ko/dev/js/cesium-ion-test"]
 trust_level = "trusted"
 
 [notice]
-hide_gpt5_1_migration_prompt = true
 "hide_gpt-5.1-codex-max_migration_prompt" = true
