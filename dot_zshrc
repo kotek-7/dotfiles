@@ -35,12 +35,12 @@ alias ll="ls -lah"
 alias pio="pwsh.exe -Command 'C:/Users/kotek/.platformio/penv/Scripts/pio.exe'"
 
 case ${OSTYPE} in
-  darwin*}
+  darwin*)
     #mac
     alias oscopy="pbcopy"
     alias ospaste="pbpaste"
     ;;
-  linux*}
+  linux*)
     #linux
     alias oscopy="wl-copy"
     alias ospaste="wl-paste"
