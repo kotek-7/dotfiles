@@ -17,6 +17,7 @@ path+=("/usr/lib/x86_64-linux-gnu/pkgconfig");
 path+=("/usr/local/texlive/2024/bin/x86_64-linux");
 path+=("/snap/bin");
 path+=("$HOME/.bun/bin")
+path+=("$HOME/.local/bin")
 
 # env
 export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
