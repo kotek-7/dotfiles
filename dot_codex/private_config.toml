@@ -1,4 +1,4 @@
-model = "gpt-5.1-codex-max"
+model = "gpt-5.2-codex"
 model_reasoning_effort = "medium"
 [projects."/home/kotek/dev/hono/matching-test"]
 trust_level = "trusted"
@@ -30,6 +30,19 @@ trust_level = "trusted"
 [projects."/home/kotek/dev/express/expressjs-template"]
 trust_level = "trusted"
 
+[projects."/home/kotek/dev/outline/test"]
+trust_level = "trusted"
+
+[projects."/home/kotek/dev/outline/outline-test"]
+trust_level = "untrusted"
+
 [notice]
 hide_gpt5_1_migration_prompt = true
 "hide_gpt-5.1-codex-max_migration_prompt" = true
+
+[notice.model_migrations]
+"gpt-5.1-codex-max" = "gpt-5.2-codex"
+
+[features]
+unified_exec = true
+shell_snapshot = true
