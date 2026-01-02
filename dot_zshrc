@@ -6,7 +6,7 @@ plugins=(
 	zsh-autosuggestions
   mise
 )
-source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh &> /dev/null
 
 # path
 path+=("/mnt/c/Users/kotek/AppData/Local/Programs/Microsoft VS Code/bin");
@@ -16,7 +16,8 @@ path+=("/mnt/c/program files/powershell/7/")
 path+=("/usr/lib/x86_64-linux-gnu/pkgconfig");
 path+=("/usr/local/texlive/2024/bin/x86_64-linux");
 path+=("/snap/bin");
-path+=("/home/kotek/.bun/bin")
+path+=("$HOME/.bun/bin")
+path+=("$HOME/.local/bin")
 
 # env
 export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
@@ -33,6 +34,19 @@ alias cm="chezmoi"
 alias la="ls -a"
 alias ll="ls -lah"
 alias pio="pwsh.exe -Command 'C:/Users/kotek/.platformio/penv/Scripts/pio.exe'"
+
+case ${OSTYPE} in
+  darwin*)
+    #mac
+    alias oscopy="pbcopy"
+    alias ospaste="pbpaste"
+    ;;
+  linux*)
+    #linux
+    alias oscopy="wl-copy"
+    alias ospaste="wl-paste"
+    ;;
+esac
 
 if command -v eza &>/dev/null
 then
@@ -54,8 +68,7 @@ bindkey "^D" do_nothing
 setopt IGNORE_EOF
 
 # mise activate
-eval "$(~/.local/bin/mise activate zsh)"
-
+eval "$(~/.local/bin/mise activate zsh)" 
 # homebrew setup
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
@@ -63,18 +76,19 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(zoxide init zsh)"
 
 # pnpm
-export PNPM_HOME="/home/kotek/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm" 
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
 # ros setup
-source /opt/ros/jazzy/setup.zsh
+source /opt/ros/jazzy/setup.zsh &>/dev/null
 
 # colcon_cd setup
-source /usr/share/colcon_cd/function/colcon_cd.sh
+source /usr/share/colcon_cd/function/colcon_cd.sh &>/dev/null
 export _colcon_cd_root=/opt/ros/jazzy/
 
 # colcon-argcomplete setup
-source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh
+source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh &>/dev/null
+
