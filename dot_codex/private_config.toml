@@ -50,6 +50,12 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [projects."/Users/suzuki.ko/dev/strike/annual_securities_reports"]
+trust_level = "trusted"
+
+[projects."/home/kotek/dev/outline/test"]
+trust_level = "trusted"
+
+[projects."/home/kotek/dev/outline/outline-test"]
 trust_level = "untrusted"
 
 [notice]

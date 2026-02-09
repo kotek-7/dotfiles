@@ -6,7 +6,7 @@ plugins=(
 	zsh-autosuggestions
   mise
 )
-source $ZSH/oh-my-zsh.sh &> /dev/null
+source $ZSH/oh-my-zsh.sh
 
 # path
 path+=("/mnt/c/Users/kotek/AppData/Local/Programs/Microsoft VS Code/bin");
@@ -16,8 +16,7 @@ path+=("/mnt/c/program files/powershell/7/")
 path+=("/usr/lib/x86_64-linux-gnu/pkgconfig");
 path+=("/usr/local/texlive/2024/bin/x86_64-linux");
 path+=("/snap/bin");
-path+=("$HOME/.bun/bin")
-path+=("$HOME/.local/bin")
+path+=("/home/kotek/.bun/bin")
 
 # env
 export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
@@ -34,19 +33,6 @@ alias cm="chezmoi"
 alias la="ls -a"
 alias ll="ls -lah"
 alias pio="pwsh.exe -Command 'C:/Users/kotek/.platformio/penv/Scripts/pio.exe'"
-
-case ${OSTYPE} in
-  darwin*)
-    #mac
-    alias oscopy="pbcopy"
-    alias ospaste="pbpaste"
-    ;;
-  linux*)
-    #linux
-    alias oscopy="wl-copy"
-    alias ospaste="wl-paste"
-    ;;
-esac
 
 if command -v eza &>/dev/null
 then
@@ -68,7 +54,8 @@ bindkey "^D" do_nothing
 setopt IGNORE_EOF
 
 # mise activate
-eval "$(~/.local/bin/mise activate zsh)" 
+eval "$(~/.local/bin/mise activate zsh)"
+
 # homebrew setup
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
@@ -76,19 +63,47 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(zoxide init zsh)"
 
 # pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm" 
+export PNPM_HOME="/home/kotek/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
 # ros setup
-source /opt/ros/jazzy/setup.zsh &>/dev/null
+source /opt/ros/jazzy/setup.zsh
 
 # colcon_cd setup
-source /usr/share/colcon_cd/function/colcon_cd.sh &>/dev/null
+source /usr/share/colcon_cd/function/colcon_cd.sh
 export _colcon_cd_root=/opt/ros/jazzy/
 
 # colcon-argcomplete setup
-source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh &>/dev/null
+source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh
+
+#compdef pnpm
+###-begin-pnpm-completion-###
+if type compdef &>/dev/null; then
+  _pnpm_completion () {
+    local reply
+    local si=$IFS
+
+    IFS=$'\n' reply=($(COMP_CWORD="$((CURRENT-1))" COMP_LINE="$BUFFER" COMP_POINT="$CURSOR" SHELL=zsh pnpm completion-server -- "${words[@]}"))
+    IFS=$si
+
+    if [ "$reply" = "__tabtab_complete_files__" ]; then
+      _files
+    else
+      _describe 'values' reply
+    fi
+  }
+  # When called by the Zsh completion system, this will end with
+  # "loadautofunc" when initially autoloaded and "shfunc" later on, otherwise,
+  # the script was "eval"-ed so use "compdef" to register it with the
+  # completion system
+  if [[ $zsh_eval_context == *func ]]; then
+    _pnpm_completion "$@"
+  else
+    compdef _pnpm_completion pnpm
+  fi
+fi
+###-end-pnpm-completion-###
 
