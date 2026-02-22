@@ -13,9 +13,6 @@ vim.keymap.set('n', '<C-Down>', '<C-w>-')
 vim.keymap.set('n', '<C-Left>', '<C-w><')
 vim.keymap.set('n', '<C-Right>', '<C-w>>')
 
--- Clear search with <esc>
-vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
-
 -- 画面スクロール
 vim.keymap.set('n', '<left>', 'zh')
 vim.keymap.set('n', '<down>', 'zj')
