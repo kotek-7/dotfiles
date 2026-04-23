@@ -2,9 +2,9 @@ unbind C-b
 set -g prefix C-q
 
 set -s set-clipboard on
-{{ if .chezmoi.os == "linux" }}
+{{ if eq .chezmoi.os "linux" }}
 set -s copy-command 'wl-copy'
-{{ else if .chezmoi.os == "darwin" }}
+{{ else if eq .chezmoi.os "darwin" }}
 set -s copy-command 'pbcopy'
 {{ end }}
 set -as terminal-features ',tmux-256color:clipboard'

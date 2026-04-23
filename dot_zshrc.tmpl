@@ -21,7 +21,7 @@ path+=("/snap/bin");
 path+=("/home/kotek/.bun/bin")
 
 # env
-{{ if .chezmoi.os == "linux" }}
+{{ if eq .chezmoi.os "linux" }}
 export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
 {{ end }}
 export EDITOR=nvim
@@ -54,7 +54,7 @@ setopt IGNORE_EOF
 # mise activate
 eval "$(~/.local/bin/mise activate zsh)"
 
-{{ if .chezmoi.os == "linux" }}
+{{ if eq .chezmoi.os "linux" }}
 # homebrew setup
 eval "$(~/linuxbrew/.linuxbrew/bin/brew shellenv)"
 {{ end }}
