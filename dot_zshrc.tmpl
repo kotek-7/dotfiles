@@ -17,6 +17,7 @@ path+=("/mnt/c/program files/powershell/7/")
 {{ end }}
 path+=("/usr/lib/x86_64-linux-gnu/pkgconfig");
 path+=("/usr/local/texlive/2024/bin/x86_64-linux");
+path+=("/home/linuxbrew/.linuxbrew/bin")
 path+=("/snap/bin");
 path+=("/home/kotek/.bun/bin")
 
@@ -38,6 +39,8 @@ alias pn="pnpm"
 alias cm="chezmoi"
 alias la="ls -a"
 alias ll="ls -lah"
+alias pio="$HOME/.platformio/penv/bin/pio"
+alias zd="zed ."
 if command -v eza &>/dev/null
 then
   alias ls="eza"
