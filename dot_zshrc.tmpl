@@ -56,7 +56,7 @@ eval "$(~/.local/bin/mise activate zsh)"
 
 {{ if eq .chezmoi.os "linux" }}
 # homebrew setup
-eval "$(~/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 {{ end }}
 
 # zoxide setup
