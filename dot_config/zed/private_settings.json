@@ -1,0 +1,76 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "cli_default_open_behavior": "new_window",
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "git_panel": {
+    "dock": "left"
+  },
+  "format_on_save": "off",
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "vim_mode": true,
+  "terminal": {
+    "font_size": 13.0,
+    "font_family": "Cascadia Code NF"
+  },
+  "base_keymap": "VSCode",
+  "buffer_font_fallbacks": [
+    "Cascadia Code",
+    "源ノ角ゴシック Code JP",
+    "Font Awesome 6 Free Solid",
+    "Font Awesome 6 Brands",
+    "monospace"
+  ],
+  "buffer_font_family": "Cascadia Code NF",
+  "linked_edits": true,
+  "show_whitespaces": "all",
+  "agent_servers": {
+    "github-copilot-cli": {
+      "type": "registry"
+    },
+    "codex-acp": {
+      "type": "registry"
+    }
+  },
+  "icon_theme": "Zed (Default)",
+  "ui_font_size": 16,
+  "buffer_font_size": 16.0,
+  "theme": "One Dark",
+  "experimental.theme_overrides": {
+      "background.appearance": "blurred",
+      "background": "#001618d0",
+      "editor.background": "#001618d0",
+      "editor.gutter.background": "#001618d0",
+      "tab_bar.background": "#001618d0",
+      "terminal.background": "#001618d0",
+      "terminal.ansi.dim_black": "#001618d0",
+      "toolbar.background": "#001618d0",
+      "tab.active_background": "#001618d0",
+      "tab.inactive_background": "#001618d0",
+      "status_bar.background": "#001618d0",
+      "title_bar.background": "#001618d0",
+      "panel.background": "#001618d0",
+      "editor.active_line.background": "#001618d0"
+  }
+}

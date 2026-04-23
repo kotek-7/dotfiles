@@ -1,0 +1,117 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    },
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-e": "file_finder::Toggle",
+    },
+  },
+  {
+    "context": "VimControl && !menu",
+    "unbind": {
+      "ctrl-e": "vim::LineDown",
+    },
+  },
+  {
+    "context": "showing_completions",
+    "unbind": {
+      "ctrl-e": "vim::LineDown",
+    },
+  },
+  {
+    "context": "MarkdownPreview",
+    "unbind": {
+      "ctrl-e": "markdown::ScrollDown",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-e": "workspace::ToggleLeftDock",
+    },
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-b": "workspace::ToggleLeftDock",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "unbind": {
+      "o": "project_panel::OpenSplitHorizontal",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "o": "project_panel::OpenPermanent",
+    },
+  },
+  {
+    "context": "Editor && vim_mode==normal",
+    "bindings": {
+      "space c f": "editor::Format",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "a": "project_panel::NewFile"
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "unbind": {
+      "%": "project_panel::NewFile"
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "r": "project_panel::Rename"
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "unbind": {
+      "shift-r": "project_panel::Rename"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "x": "project_panel::Cut"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "y": "project_panel::Copy"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "p": "project_panel::Paste"
+    }
+  }
+]
