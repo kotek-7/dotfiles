@@ -4,27 +4,33 @@ ZSH_THEME="dst"
 plugins=(
 	git
 	zsh-autosuggestions
-  mise
+	mise
 )
 source $ZSH/oh-my-zsh.sh
 
 # path
+{{ if .wsl }}
 path+=("/mnt/c/Users/kotek/AppData/Local/Programs/Microsoft VS Code/bin");
 path+=("/mnt/c/Users/kotek/AppData/Local/Programs/cursor/resources/app/bin")
 path+=("/mnt/c/Users/kotek/.platformio/penv/Scripts")
 path+=("/mnt/c/program files/powershell/7/")
+{{ end }}
 path+=("/usr/lib/x86_64-linux-gnu/pkgconfig");
 path+=("/usr/local/texlive/2024/bin/x86_64-linux");
 path+=("/snap/bin");
 path+=("/home/kotek/.bun/bin")
 
 # env
+{{ if .chezmoi.os == "linux" }}
 export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
+{{ end }}
 export EDITOR=nvim
 
 # alias
 alias coda="code ."
+{{ if .wsl }}
 alias codaw="pwsh.exe -Command code ."
+{{ end }}
 alias cld="claude"
 alias cam="cargo compete"
 alias t="tmux"
@@ -32,18 +38,10 @@ alias pn="pnpm"
 alias cm="chezmoi"
 alias la="ls -a"
 alias ll="ls -lah"
-# alias pio="pwsh.exe -Command 'C:/Users/kotek/.platformio/penv/Scripts/pio.exe'"
-
 if command -v eza &>/dev/null
 then
   alias ls="eza"
-fi
-if command -v eza &>/dev/null
-then
   alias la="eza -a"
-fi
-if command -v eza &>/dev/null
-then
   alias ll="eza -lah --icons"
 fi
 
@@ -56,19 +54,22 @@ setopt IGNORE_EOF
 # mise activate
 eval "$(~/.local/bin/mise activate zsh)"
 
+{{ if .chezmoi.os == "linux" }}
 # homebrew setup
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(~/linuxbrew/.linuxbrew/bin/brew shellenv)"
+{{ end }}
 
 # zoxide setup
 eval "$(zoxide init zsh)"
 
 # pnpm
-export PNPM_HOME="/home/kotek/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
+{{ if .ros }}
 # ros setup
 source /opt/ros/jazzy/setup.zsh
 
@@ -78,6 +79,7 @@ export _colcon_cd_root=/opt/ros/jazzy/
 
 # colcon-argcomplete setup
 source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh
+{{ end }}
 
 #compdef pnpm
 ###-begin-pnpm-completion-###
@@ -106,4 +108,3 @@ if type compdef &>/dev/null; then
   fi
 fi
 ###-end-pnpm-completion-###
-

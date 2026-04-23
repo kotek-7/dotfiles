@@ -2,7 +2,11 @@ unbind C-b
 set -g prefix C-q
 
 set -s set-clipboard on
+{{ if .chezmoi.os == "linux" }}
 set -s copy-command 'wl-copy'
+{{ else if .chezmoi.os == "darwin" }}
+set -s copy-command 'pbcopy'
+{{ end }}
 set -as terminal-features ',tmux-256color:clipboard'
 set -g escape-time 10
 
@@ -17,10 +21,10 @@ bind -n M-k select-pane -U
 bind -n M-l select-pane -R
 
 bind-key -T copy-mode-vi v send-keys -X begin-selection
-bind-key -T copy-mode-vi y send-keys -X copy-pipe "wl-copy"
-bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "wl-copy"
-bind-key -T copy-mode-vi C-j send-keys -X copy-pipe-and-cancel "wl-copy"
-bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe "wl-copy"
+bind-key -T copy-mode-vi y send-keys -X copy-pipe
+bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel
+bind-key -T copy-mode-vi C-j send-keys -X copy-pipe-and-cancel
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe
 
 unbind %
 bind -r v split-window -h
