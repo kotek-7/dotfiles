@@ -113,5 +113,17 @@
     "bindings": {
       "p": "project_panel::Paste"
     }
+  },
+  {
+    "context": "FileFinder || FileFinder > Picker > Editor",
+    "bindings": {
+      "space space": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "space space": "file_finder::Toggle"
+    }
   }
 ]
