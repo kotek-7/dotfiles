@@ -97,19 +97,19 @@
     }
   },
   {
-    "context": "ProjectPanel",
+    "context": "ProjectPanel && not_editing",
     "bindings": {
       "x": "project_panel::Cut"
     }
   },
   {
-    "context": "ProjectPanel",
+    "context": "ProjectPanel && not_editing",
     "bindings": {
       "y": "project_panel::Copy"
     }
   },
   {
-    "context": "ProjectPanel",
+    "context": "ProjectPanel && not_editing",
     "bindings": {
       "p": "project_panel::Paste"
     }
@@ -124,6 +124,12 @@
     "context": "VimControl && !menu",
     "bindings": {
       "space space": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "space c a": "editor::ToggleCodeActions"
     }
   }
 ]
