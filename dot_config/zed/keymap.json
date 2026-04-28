@@ -131,5 +131,22 @@
     "bindings": {
       "space c a": "editor::ToggleCodeActions"
     }
+  },
+  {
+    "context": "Editor && mode == full",
+    "unbind": {
+      "cmd-e": [
+        "buffer_search::Deploy",
+        {
+          "focus": false
+        }
+      ]
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-e": "workspace::ToggleLeftDock"
+    }
   }
 ]

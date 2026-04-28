@@ -58,6 +58,7 @@
   "buffer_font_size": 16.0,
   "theme": "One Dark",
   "experimental.theme_overrides": {
+{{ if eq .chezmoi.os "linux" }}
       "background.appearance": "blurred",
       "background": "#001618d0",
       "editor.background": "#001618d0",
@@ -72,5 +73,21 @@
       "title_bar.background": "#001618d0",
       "panel.background": "#001618d0",
       "editor.active_line.background": "#001618d0"
+{{ else if eq .chezmoi.os "darwin" }}
+      "background.appearance": "blurred",
+      "background": "#00161833",
+      "editor.background": "#00161833",
+      "editor.gutter.background": "#00161833",
+      "tab_bar.background": "#00161833",
+      "terminal.background": "#00161833",
+      "terminal.ansi.dim_black": "#00161833",
+      "toolbar.background": "#00161833",
+      "tab.active_background": "#00161833",
+      "tab.inactive_background": "#00161833",
+      "status_bar.background": "#00161833",
+      "title_bar.background": "#00161833",
+      "panel.background": "#00161833",
+      "editor.active_line.background": "#00161833"
+{{ end }}
   }
 }
