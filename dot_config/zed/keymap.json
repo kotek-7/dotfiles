@@ -148,5 +148,17 @@
     "bindings": {
       "cmd-e": "workspace::ToggleLeftDock"
     }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-shift-g": "git_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Pane",
+    "unbind": {
+      "cmd-shift-g": "search::SelectPreviousMatch"
+    }
   }
 ]
