@@ -18,5 +18,3 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # mise setup
 eval "$(mise activate zsh)"
 mise install
-
-exit 0
