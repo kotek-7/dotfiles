@@ -1,3 +1,5 @@
+set -euo pipefail
+
 apt-get update
 apt-get install -y build-essential curl git zsh pkg-config libssl-dev
 
