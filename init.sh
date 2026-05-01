@@ -9,7 +9,7 @@ sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --apply kotek-7
 # setup mise
 sh -c "$(curl -fsSL https://mise.run)"
 eval "$(mise activate zsh)"
-mise install
+~/.local/bin/mise install
 
 # zsh setup
 chsh -s $(which zsh)
