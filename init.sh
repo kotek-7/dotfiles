@@ -1,5 +1,5 @@
 apt-get update
-apt-get install -y build-essential curl git
+apt-get install -y build-essential curl git pkg-config libssl-dev
 
 # install brew
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -13,7 +13,7 @@ chezmoi init --apply kotek-7
 
 # zsh setup
 chsh -s $(which zsh)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc --skip-chsh
 
 # mise setup
 eval "$(mise activate zsh)"
