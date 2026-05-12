@@ -75,62 +75,62 @@
   {
     "context": "ProjectPanel && not_editing",
     "bindings": {
-      "a": "project_panel::NewFile",
-    },
+      "a": "project_panel::NewFile"
+    }
   },
   {
     "context": "ProjectPanel && not_editing",
     "unbind": {
-      "%": "project_panel::NewFile",
-    },
+      "%": "project_panel::NewFile"
+    }
   },
   {
     "context": "ProjectPanel && not_editing",
     "bindings": {
-      "r": "project_panel::Rename",
-    },
+      "r": "project_panel::Rename"
+    }
   },
   {
     "context": "ProjectPanel && not_editing",
     "unbind": {
-      "shift-r": "project_panel::Rename",
-    },
+      "shift-r": "project_panel::Rename"
+    }
   },
   {
     "context": "ProjectPanel && not_editing",
     "bindings": {
-      "x": "project_panel::Cut",
-    },
+      "x": "project_panel::Cut"
+    }
   },
   {
     "context": "ProjectPanel && not_editing",
     "bindings": {
-      "y": "project_panel::Copy",
-    },
+      "y": "project_panel::Copy"
+    }
   },
   {
     "context": "ProjectPanel && not_editing",
     "bindings": {
-      "p": "project_panel::Paste",
-    },
+      "p": "project_panel::Paste"
+    }
   },
   {
     "context": "FileFinder || FileFinder > Picker > Editor",
     "bindings": {
-      "space space": "file_finder::Toggle",
-    },
+      "space space": "file_finder::Toggle"
+    }
   },
   {
     "context": "VimControl && !menu",
     "bindings": {
-      "space space": "file_finder::Toggle",
-    },
+      "space space": "file_finder::Toggle"
+    }
   },
   {
     "context": "Editor && vim_mode == normal",
     "bindings": {
-      "space c a": "editor::ToggleCodeActions",
-    },
+      "space c a": "editor::ToggleCodeActions"
+    }
   },
   {
     "context": "Editor && mode == full",
@@ -138,33 +138,33 @@
       "cmd-e": [
         "buffer_search::Deploy",
         {
-          "focus": false,
-        },
-      ],
-    },
+          "focus": false
+        }
+      ]
+    }
   },
   {
     "context": "Workspace",
     "bindings": {
-      "cmd-e": "workspace::ToggleLeftDock",
-    },
+      "cmd-e": "workspace::ToggleLeftDock"
+    }
   },
   {
     "context": "Workspace",
     "bindings": {
-      "cmd-shift-g": "git_panel::ToggleFocus",
-    },
+      "cmd-shift-g": "git_panel::ToggleFocus"
+    }
   },
   {
     "context": "Pane",
     "unbind": {
-      "cmd-shift-g": "search::SelectPreviousMatch",
-    },
+      "cmd-shift-g": "search::SelectPreviousMatch"
+    }
   },
   {
-    "context": "vim_mode == visual",
-    "bindings": {
-      "shift-s": ["vim::PushAddSurrounds", {}],
-    },
-  },
+    "context": "Editor && mode == full",
+    "unbind": {
+      "cmd-e": "buffer_search::UseSelectionForFind"
+    }
+  }
 ]

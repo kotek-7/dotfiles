@@ -8,23 +8,10 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "languages": {
-    "Astro": {
-      "tab_size": 2
-    },
-    "JSONC": {
-      "tab_size": 2
-    },
-    "JSON": {
-      "tab_size": 2
-    },
-    "HTML": {
-      "tab_size": 2
-    },
-    "CSS": {
-      "tab_size": 2
-    },
-    "TypeScript": {
-      "tab_size": 2
+    "Markdown": {
+      "inlay_hints": {
+        "enabled": false
+      }
     }
   },
   "edit_predictions": {
