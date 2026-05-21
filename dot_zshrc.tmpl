@@ -74,6 +74,9 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
+# codex completion
+eval "$(codex completion zsh)"
+
 {{ if .ros }}
 # ros setup
 source /opt/ros/jazzy/setup.zsh
