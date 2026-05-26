@@ -8,25 +8,34 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "languages": {
+    "Rust": {
+      "inlay_hints": {
+        "enabled": true,
+      },
+    },
     "Astro": {
-      "tab_size": 2
+      "tab_size": 2,
     },
     "JSONC": {
-      "tab_size": 2
+      "tab_size": 2,
     },
     "JSON": {
-      "tab_size": 2
+      "tab_size": 2,
     },
     "HTML": {
-      "tab_size": 2
+      "tab_size": 2,
     },
     "CSS": {
-      "tab_size": 2
+      "tab_size": 2,
     },
     "TypeScript": {
-      "tab_size": 2
-    }
+      "tab_size": 2,
+    },
   },
+  "ui_font_family": ".ZedSans",
+  "ui_font_fallbacks": ["Noto Sans CJK JP"],
+  "buffer_font_family": "Cascadia Code NF",
+  "buffer_font_fallbacks": ["Noto Sans CJK JP"],
   "edit_predictions": {
     "provider": "copilot",
   },
@@ -59,14 +68,6 @@
     "font_family": "Cascadia Code NF",
   },
   "base_keymap": "VSCode",
-  "buffer_font_fallbacks": [
-    "Cascadia Code",
-    "源ノ角ゴシック Code JP",
-    "Font Awesome 6 Free Solid",
-    "Font Awesome 6 Brands",
-    "monospace",
-  ],
-  "buffer_font_family": "Cascadia Code NF",
   "linked_edits": true,
   "show_whitespaces": "all",
   "agent_servers": {

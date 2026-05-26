@@ -167,4 +167,21 @@
       "shift-s": ["vim::PushAddSurrounds", {}],
     },
   },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "shift-s shift-t": "editor::WrapSelectionsInTag"
+    }
+  },
+  {
+    "unbind": {
+      "shift-escape": "workspace::ToggleZoom"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "unbind": {
+      "ctrl-j": "vim::Down"
+    }
+  }
 ]
