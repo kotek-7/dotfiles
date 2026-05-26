@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sync Docs"
+  short_description: "Find and fix drift between docs and code"
+  default_prompt: "Use $sync-doc to compare the project documentation with the implementation and propose focused fixes."
+
