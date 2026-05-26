@@ -1,0 +1,4 @@
+interface:
+  display_name: "Explain"
+  short_description: "Explain the current repository to the user"
+  default_prompt: "Use $explain to inspect the current directory and explain this project to me."

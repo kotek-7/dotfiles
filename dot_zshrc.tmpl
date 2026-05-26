@@ -42,6 +42,7 @@ alias la="ls -a"
 alias ll="ls -lah"
 alias pio="$HOME/.platformio/penv/bin/pio"
 alias zd="zed ."
+alias cx="codex"
 if command -v eza &>/dev/null
 then
   alias ls="eza"
@@ -72,6 +73,9 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+
+# codex completion
+eval "$(codex completion zsh)"
 
 {{ if .ros }}
 # ros setup

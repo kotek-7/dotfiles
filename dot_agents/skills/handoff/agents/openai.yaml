@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handoff"
+  short_description: "Create a prompt for another agent"
+  default_prompt: "Use $handoff to produce a paste-ready context prompt for another agent to read before waiting for my next instruction."

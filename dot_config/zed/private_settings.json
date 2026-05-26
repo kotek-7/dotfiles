@@ -8,69 +8,83 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "languages": {
-    "Markdown": {
+    "Rust": {
       "inlay_hints": {
-        "enabled": false
+        "enabled": true
       }
+    },
+    "Astro": {
+      "tab_size": 2
+    },
+    "JSONC": {
+      "tab_size": 2
+    },
+    "JSON": {
+      "tab_size": 2
+    },
+    "HTML": {
+      "tab_size": 2
+    },
+    "CSS": {
+      "tab_size": 2
+    },
+    "TypeScript": {
+      "tab_size": 2
     }
   },
+  "ui_font_family": ".ZedSans",
+  "ui_font_fallbacks": ["Noto Sans CJK JP"],
+  "buffer_font_family": "Cascadia Code NF",
+  "buffer_font_fallbacks": ["Noto Sans CJK JP"],
   "edit_predictions": {
-    "provider": "copilot",
+    "provider": "copilot"
   },
   "show_edit_predictions": true,
   "cli_default_open_behavior": "new_window",
   "project_panel": {
-    "dock": "left",
+    "dock": "left"
   },
   "outline_panel": {
-    "dock": "left",
+    "dock": "left"
   },
   "collaboration_panel": {
-    "dock": "left",
+    "dock": "left"
   },
   "agent": {
     "dock": "right",
     "favorite_models": [],
-    "model_parameters": [],
+    "model_parameters": []
   },
   "git_panel": {
-    "dock": "left",
+    "dock": "left"
   },
   "format_on_save": "off",
   "session": {
-    "trust_all_worktrees": true,
+    "trust_all_worktrees": true
   },
   "vim_mode": true,
   "terminal": {
     "font_size": 13.0,
-    "font_family": "Cascadia Code NF",
+    "font_family": "Cascadia Code NF"
   },
   "base_keymap": "VSCode",
-  "buffer_font_fallbacks": [
-    "Cascadia Code",
-    "源ノ角ゴシック Code JP",
-    "Font Awesome 6 Free Solid",
-    "Font Awesome 6 Brands",
-    "monospace",
-  ],
-  "buffer_font_family": "Cascadia Code NF",
   "linked_edits": true,
   "show_whitespaces": "all",
   "agent_servers": {
     "github-copilot-cli": {
-      "type": "registry",
+      "type": "registry"
     },
     "codex-acp": {
-      "type": "registry",
-    },
+      "type": "registry"
+    }
   },
   "lsp": {
     "discord_presence": {
       "initialization_options": {
         "state": "coding in {language}",
-        "details": "run `zed .`!",
-      },
-    },
+        "details": "run `zed .`!"
+      }
+    }
   },
   "icon_theme": "Zed (Default)",
   "ui_font_size": 16,
@@ -90,6 +104,6 @@
     "status_bar.background": "#001618e0",
     "title_bar.background": "#001618e0",
     "panel.background": "#001618a0",
-    "editor.active_line.background": "#001618a0",
-  },
+    "editor.active_line.background": "#001618a0"
+  }
 }
