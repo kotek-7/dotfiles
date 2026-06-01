@@ -92,8 +92,8 @@
   "theme": "One Dark",
   "experimental.theme_overrides": {
     "background.appearance": "blurred",
-    "background": "#00161800",
-    "editor.background": "#00161800",
+    "background": "#001618e0",
+    "editor.background": "#001618a0",
     "editor.gutter.background": "#001618a0",
     "tab_bar.background": "#001618a0",
     "terminal.background": "#001618a0",

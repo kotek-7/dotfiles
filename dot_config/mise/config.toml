@@ -1,4 +1,5 @@
 [tools]
+aube = "latest"
 bun = "latest"
 "cargo:eza" = "latest"
 "cargo:fd-find" = "latest"
