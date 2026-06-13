@@ -3,6 +3,7 @@
 ## Why use multiple sessions
 
 When you need more than one browser at a time:
+
 - Cloud browser for scraping + local Chrome for authenticated tasks
 - Two different Chrome profiles simultaneously
 - Isolated browser for testing that won't affect the user's browsing
@@ -11,6 +12,7 @@ When you need more than one browser at a time:
 ## How sessions are isolated
 
 Each `--session NAME` gets:
+
 - Its own daemon process
 - Its own Unix socket (`~/.browser-use/{name}.sock`)
 - Its own PID file and state file
@@ -51,6 +53,7 @@ browser-use sessions
 ```
 
 Output:
+
 ```
 SESSION          PHASE          PID      CONFIG
 cloud            running        12345    cloud
@@ -68,6 +71,7 @@ browser-use close --all                     # close every session
 ## Common patterns
 
 **Cloud + local authenticated:**
+
 ```bash
 browser-use --session scraper cloud connect
 browser-use --session scraper open https://example.com
@@ -79,6 +83,7 @@ browser-use --session auth state
 ```
 
 **Throwaway test browser:**
+
 ```bash
 browser-use --session test --headed open https://localhost:3000
 # ... test, debug, inspect ...
@@ -86,6 +91,7 @@ browser-use --session test close    # done, clean up
 ```
 
 **Environment variable:**
+
 ```bash
 export BROWSER_USE_SESSION=work
 browser-use open <url>              # uses 'work' session without --session flag

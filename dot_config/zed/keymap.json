@@ -162,6 +162,12 @@
     },
   },
   {
+    "context": "Editor && mode == full",
+    "unbind": {
+      "cmd-e": "buffer_search::UseSelectionForFind",
+    },
+  },
+  {
     "context": "vim_mode == visual",
     "bindings": {
       "shift-s": ["vim::PushAddSurrounds", {}],
@@ -170,18 +176,18 @@
   {
     "context": "vim_mode == visual",
     "bindings": {
-      "shift-s shift-t": "editor::WrapSelectionsInTag"
-    }
+      "shift-s shift-t": "editor::WrapSelectionsInTag",
+    },
   },
   {
     "unbind": {
-      "shift-escape": "workspace::ToggleZoom"
-    }
+      "shift-escape": "workspace::ToggleZoom",
+    },
   },
   {
     "context": "VimControl && !menu",
     "unbind": {
-      "ctrl-j": "vim::Down"
-    }
-  }
+      "ctrl-j": "vim::Down",
+    },
+  },
 ]

@@ -204,14 +204,14 @@ Config stored in `~/.browser-use/config.json`.
 
 ## Global Options
 
-| Option | Description |
-|--------|-------------|
-| `--headed` | Show browser window |
+| Option             | Description                                       |
+| ------------------ | ------------------------------------------------- |
+| `--headed`         | Show browser window                               |
 | `--profile [NAME]` | Use real Chrome (bare `--profile` uses "Default") |
-| `--cdp-url <url>` | Connect via CDP URL (`http://` or `ws://`) |
-| `--session NAME` | Target a named session (default: "default") |
-| `--json` | Output as JSON |
-| `--mcp` | Run as MCP server via stdin/stdout |
+| `--cdp-url <url>`  | Connect via CDP URL (`http://` or `ws://`)        |
+| `--session NAME`   | Target a named session (default: "default")       |
+| `--json`           | Output as JSON                                    |
+| `--mcp`            | Run as MCP server via stdin/stdout                |
 
 ## Tips
 
