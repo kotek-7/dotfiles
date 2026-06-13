@@ -1,7 +1,7 @@
 set -e
 
-apt-get update
-apt-get install -y build-essential curl git zsh pkg-config libssl-dev
+sudo apt-get update
+sudo apt-get install -y build-essential curl git zsh pkg-config libssl-dev
 
 # setup chezmoi
 sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --apply kotek-7
