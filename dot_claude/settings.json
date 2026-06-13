@@ -1,34 +1,99 @@
 {
   "hooks": {
-    "PreToolUse": [
+    "Notification": [
       {
-        "matcher": "Bash",
         "hooks": [
           {
-            "type": "command",
-            "command": "/mnt/c/users/kotek/apps/toast/toast64.exe --app-id 'Claude Code' --title 'Command Execution' --message 'Executing bash command...' --icon 'C:\\Windows\\System32\\cmd.exe' --audio 'default' --duration 'short'"
+            "command": "/mnt/c/Users/kotek/apps/toast/toast64.exe --app-id 'Claude Code' --title 'Notification' --message 'Claude Code has a notification for you.' --icon 'C:\\Windows\\System32\\imageres.dll,1' --audio 'default' --duration 'long'",
+            "type": "command"
+          }
+        ],
+        "matcher": ""
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "async": false,
+            "command": "'/home/kotek/.local/bin/moshi-hook' claude-hook",
+            "timeout": 300,
+            "type": "command"
           }
         ]
       }
     ],
-    "Notification": [
+    "PostToolUse": [
       {
-        "matcher": "",
         "hooks": [
           {
-            "type": "command",
-            "command": "/mnt/c/Users/kotek/apps/toast/toast64.exe --app-id 'Claude Code' --title 'Notification' --message 'Claude Code has a notification for you.' --icon 'C:\\Windows\\System32\\imageres.dll,1' --audio 'default' --duration 'long'"
+            "async": true,
+            "command": "'/home/kotek/.local/bin/moshi-hook' claude-hook",
+            "type": "command"
+          }
+        ],
+        "matcher": "AskUserQuestion"
+      },
+      {
+        "hooks": [
+          {
+            "async": true,
+            "command": "'/home/kotek/.local/bin/moshi-hook' claude-hook",
+            "type": "command"
+          }
+        ],
+        "matcher": "ExitPlanMode"
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "/mnt/c/users/kotek/apps/toast/toast64.exe --app-id 'Claude Code' --title 'Command Execution' --message 'Executing bash command...' --icon 'C:\\Windows\\System32\\cmd.exe' --audio 'default' --duration 'short'",
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash"
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "async": true,
+            "command": "'/home/kotek/.local/bin/moshi-hook' claude-hook",
+            "type": "command"
           }
         ]
       }
     ],
     "Stop": [
       {
-        "matcher": "",
         "hooks": [
           {
-            "type": "command",
-            "command": "/mnt/c/Users/kotek/apps/toast/toast64.exe --app-id 'Claude Code' --title 'Task Complete' --message 'Claude Code has finished the task.' --icon 'C:\\Windows\\System32\\imageres.dll,77' --audio 'default' --duration 'long'"
+            "command": "/mnt/c/Users/kotek/apps/toast/toast64.exe --app-id 'Claude Code' --title 'Task Complete' --message 'Claude Code has finished the task.' --icon 'C:\\Windows\\System32\\imageres.dll,77' --audio 'default' --duration 'long'",
+            "type": "command"
+          }
+        ],
+        "matcher": ""
+      },
+      {
+        "hooks": [
+          {
+            "async": true,
+            "command": "'/home/kotek/.local/bin/moshi-hook' claude-hook",
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "async": true,
+            "command": "'/home/kotek/.local/bin/moshi-hook' claude-hook",
+            "type": "command"
           }
         ]
       }

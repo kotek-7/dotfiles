@@ -1,12 +1,13 @@
 ---
 name: browser-use
-description: Automates browser interactions for web testing, form filling, screenshots, and data extraction. Use when the user needs to navigate websites, interact with web pages, fill forms, take screenshots, or extract information from web pages.
-allowed-tools: Bash(browser-use:*)
+description: "Use when a task needs browser automation through the `browser-use` CLI: navigating websites, interacting with pages, filling forms, taking screenshots, or extracting page data."
 ---
 
 # Browser Automation with browser-use CLI
 
 The `browser-use` command provides fast, persistent browser automation. A background daemon keeps the browser open across commands, giving ~50ms latency per call.
+
+This skill assumes the `browser-use` CLI is installed and available on `PATH`.
 
 ## Prerequisites
 

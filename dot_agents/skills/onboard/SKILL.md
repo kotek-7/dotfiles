@@ -1,8 +1,6 @@
 ---
 name: "onboard"
 description: "Use when first entering a project or when the user asks to understand, inspect, summarize, onboard, or get familiar with a repository. This skill performs read-only project orientation: structure, stack, important files, commands, tests, docs, risks, and next investigation targets."
-metadata:
-  short-description: "Read-only project orientation"
 ---
 
 # Onboard

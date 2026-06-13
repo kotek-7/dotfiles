@@ -1,8 +1,6 @@
 ---
 name: "sync-doc"
 description: "Use when checking consistency between documentation and implementation, including README files, docs directories, API docs, setup steps, file paths, commands, dependencies, and tests. Trigger when the user asks to sync docs with code, find stale documentation, verify docs against implementation, or update docs after code changes."
-metadata:
-  short-description: "Sync docs with implementation"
 ---
 
 # Sync Docs

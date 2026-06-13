@@ -1,8 +1,6 @@
 ---
 name: "handoff"
 description: "Use when the user wants to transfer the current conversation, task state, project context, decisions, constraints, or next steps to another agent or a new chat. Produces a concise context handoff prompt that another agent should read before waiting for the user's next instruction."
-metadata:
-  short-description: "Generate an agent handoff prompt"
 ---
 
 # Handoff

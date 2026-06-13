@@ -1,8 +1,6 @@
 ---
 name: "explain"
 description: "Use when the user asks to explain the project in the current working directory, summarize what this repository does, describe its structure, or provide a user-facing project overview. This skill performs read-only inspection and returns a concise explanation for the user."
-metadata:
-  short-description: "Explain the current project"
 ---
 
 # Explain
