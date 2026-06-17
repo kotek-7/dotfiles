@@ -26,7 +26,7 @@ path+=("$HOME/.local/bin")
 {{ if eq .chezmoi.os "linux" }}
 export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
 {{ end }}
-export EDITOR="zed --wait"
+export EDITOR="$(command -v zed) --wait"
 
 # alias
 alias coda="code ."
