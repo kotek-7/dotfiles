@@ -83,6 +83,9 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
+# GHC setup
+[ -f "/home/kotek/.ghcup/env" ] && . "/home/kotek/.ghcup/env"
+
 # codex completion
 eval "$(codex completion zsh)"
 
