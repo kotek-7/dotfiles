@@ -102,6 +102,11 @@ esac
 # codex completion
 eval "$(codex completion zsh)"
 
+# uv completion
+if command -v uv &>/dev/null; then
+  eval "$(uv generate-shell-completion zsh)"
+fi
+
 {{ if .ros }}
 # ros setup
 source /opt/ros/jazzy/setup.zsh
