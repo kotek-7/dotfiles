@@ -61,13 +61,13 @@ then
 fi
 
 # replace ctrl-r with fzf
-hf() {
-  BUFFER="$(history -n 1 | fzf --tac +s)"
+fzfhistory() {
+  BUFFER="$(history -n 1 | fzf --reverse --tac +s)"
   CURSOR=${#BUFFER}
   zle redisplay
 }
-zle -N hf
-bindkey '^R' hf
+zle -N fzfhistory
+bindkey '^R' fzfhistory
 
 # disable ctrl-d
 function do_nothing(){}
