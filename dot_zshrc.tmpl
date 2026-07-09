@@ -53,7 +53,7 @@ alias cx="codex"
 alias rm='rm -v'
 alias mv='mv -v'
 alias cp='cp -v'
-alias hf='$(history -n 1 | fzf --tac +s)'
+alias hf='eval $(history -n 1 | fzf --tac +s)'
 if command -v eza &>/dev/null
 then
   alias ls="eza"
