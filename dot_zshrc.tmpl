@@ -53,13 +53,21 @@ alias cx="codex"
 alias rm='rm -v'
 alias mv='mv -v'
 alias cp='cp -v'
-alias hf='eval $(history -n 1 | fzf --tac +s)'
 if command -v eza &>/dev/null
 then
   alias ls="eza"
   alias la="eza -a"
   alias ll="eza -lah --icons"
 fi
+
+# replace ctrl-r with fzf
+hf() {
+  BUFFER="$(history -n 1 | fzf --tac +s)"
+  CURSOR=${#BUFFER}
+  zle redisplay
+}
+zle -N hf
+bindkey '^R' hf
 
 # disable ctrl-d
 function do_nothing(){}
