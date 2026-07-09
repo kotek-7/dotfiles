@@ -62,7 +62,9 @@ fi
 
 # replace ctrl-r with fzf
 fzfhistory() {
-  BUFFER="$(history -n 1 | fzf --reverse --tac +s --query "$BUFFER")"
+  local result
+  result="$(history -n 1 | fzf --reverse --tac +s --query "$BUFFER")" || return
+  BUFFER="$result"
   CURSOR=${#BUFFER}
   zle redisplay
 }
