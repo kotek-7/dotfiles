@@ -3,7 +3,7 @@ aube = "latest"
 bun = "latest"
 "cargo:eza" = "latest"
 "cargo:fd-find" = "latest"
-"cargo:ripgrep" = "latest"
+"cargo:ripgrep" = { version = "latest", features = ["pcre2"] }
 "cargo:sd" = "latest"
 "cargo:sqlx-cli" = "latest"
 "cargo:zoxide" = "latest"
