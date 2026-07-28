@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "on_last_window_closed": "platform_default",
   "languages": {
     "Rust": {
       "inlay_hints": {
@@ -34,7 +35,7 @@
   },
   "ui_font_family": ".ZedSans",
   "ui_font_fallbacks": ["Noto Sans CJK JP"],
-  "buffer_font_family": "Cascadia Code NF",
+  "buffer_font_family": "Source Han Code JP",
   "buffer_font_fallbacks": ["Noto Sans CJK JP"],
   "edit_predictions": {
     "provider": "copilot"
@@ -65,7 +66,7 @@
   "vim_mode": true,
   "terminal": {
     "font_size": 13.0,
-    "font_family": "Cascadia Code NF"
+    "font_family": "Source Han Code JP"
   },
   "base_keymap": "VSCode",
   "linked_edits": true,
