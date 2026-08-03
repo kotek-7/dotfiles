@@ -7,41 +7,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 /home/kotek/.claude/scripts/notify-ubuntu.py 'Claude Code has a notification for you.'"
-          }
-        ]
-      }
-    ],
-    "PermissionRequest": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "'/home/kotek/.local/bin/moshi-hook' claude-hook",
-            "timeout": 300,
-            "async": false
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "AskUserQuestion",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "'/home/kotek/.local/bin/moshi-hook' claude-hook",
-            "async": true
-          }
-        ]
-      },
-      {
-        "matcher": "ExitPlanMode",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "'/home/kotek/.local/bin/moshi-hook' claude-hook",
-            "async": true
+            "command": "python3 \"$HOME/.claude/scripts/notify.py\" 'Claude Code has a notification for you.'"
           }
         ]
       }
@@ -52,18 +18,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 /home/kotek/.claude/scripts/notify-ubuntu.py 'Executing bash command...'"
-          }
-        ]
-      }
-    ],
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "'/home/kotek/.local/bin/moshi-hook' claude-hook",
-            "async": true
+            "command": "python3 \"$HOME/.claude/scripts/notify.py\" 'Executing bash command...'"
           }
         ]
       }
@@ -74,27 +29,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 /home/kotek/.claude/scripts/notify-ubuntu.py 'Claude Code has finished the task.'"
-          }
-        ]
-      },
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "'/home/kotek/.local/bin/moshi-hook' claude-hook",
-            "async": true
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "'/home/kotek/.local/bin/moshi-hook' claude-hook",
-            "async": true
+            "command": "python3 \"$HOME/.claude/scripts/notify.py\" 'Claude Code has finished the task.'"
           }
         ]
       }
@@ -102,7 +37,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "/home/kotek/.claude/statusline.sh"
+    "command": "\"$HOME/.claude/statusline.sh\""
   },
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark"
