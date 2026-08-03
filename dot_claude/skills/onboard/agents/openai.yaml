@@ -1,0 +1,4 @@
+interface:
+  display_name: "Onboard"
+  short_description: "Understand a project before making changes"
+  default_prompt: "Use $onboard to inspect this repository and give me a concise project orientation."

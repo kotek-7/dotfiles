@@ -1,0 +1,3 @@
+interface:
+  display_name: "Explain"
+  short_description: "Explain the current project"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Sync Doc"
+  short_description: "Sync docs with implementation"
