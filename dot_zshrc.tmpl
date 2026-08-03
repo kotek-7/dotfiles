@@ -4,7 +4,7 @@ setopt INC_APPEND_HISTORY
 
 # oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="dst"
+ZSH_THEME="ys"
 plugins=(
 	git
 	mise
@@ -29,6 +29,7 @@ path+=("/home/linuxbrew/.linuxbrew/bin")
 path+=("/snap/bin");
 path+=("/home/kotek/.bun/bin")
 path+=("$HOME/.local/bin")
+path+=("$HOME/bin")
 
 # env
 {{ if eq .chezmoi.os "linux" }}
@@ -40,6 +41,10 @@ export EDITOR="$(command -v zed) --wait"
 alias coda="code ."
 {{ if .wsl }}
 alias codaw="pwsh.exe -Command code ."
+alias pbcopy="clip.exe"
+alias pbpaste="powershell.exe -command 'Get-Clipboard'"
+alias wl-copy="clip.exe"
+alias wl-paste="powershell.exe -command 'Get-Clipboard'"
 {{ end }}
 alias cld="claude --dangerously-skip-permissions"
 alias cam="cargo compete"

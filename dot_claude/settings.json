@@ -12,6 +12,18 @@
         ]
       }
     ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/home/kotek/.local/bin/moshi-hook' claude-hook",
+            "timeout": 300,
+            "async": false
+          }
+        ]
+      }
+    ],
     "PostToolUse": [
       {
         "matcher": "AskUserQuestion",

@@ -174,12 +174,6 @@
     },
   },
   {
-    "context": "vim_mode == visual",
-    "bindings": {
-      "shift-s shift-t": "editor::WrapSelectionsInTag",
-    },
-  },
-  {
     "unbind": {
       "shift-escape": "workspace::ToggleZoom",
     },
