@@ -112,6 +112,40 @@ When sanitizing an artifact, check:
 8. Is any meta-commentary present that belongs only in the production process?
 9. Are disclaimers or caveats included only when the audience truly needs them?
 10. Does the artifact have a single coherent voice?
+11. Do local assets resolve through portable relative paths from the artifact?
+12. Is every media conversion, embedding, or re-encoding justified by a real delivery requirement?
+13. Did any text transformation alter HTML attributes, code, or other structured content?
+14. Does each logical source-code listing remain one complete code block in the final artifact?
+15. Could an apparent artifact failure actually be caused by browser or OS permissions?
+
+## Preserve Artifact Integrity
+
+Sanitization must not damage a working artifact or change its delivery model without a concrete reason.
+
+### Assets and portability
+
+- Preserve the source media format, bytes, and visual quality by default.
+- Convert, re-encode, or embed media only when an explicit requirement justifies the change and the result is verified.
+- Use ordinary relative paths for assets that travel with Markdown or HTML, such as `images/overview.png`.
+- Do not introduce data URIs, absolute machine-specific paths, WebP conversion, or a localhost server merely to work around a local display failure.
+- Resolve each relative path from the document that contains it, and verify that the target exists.
+- Apply the same asset-link contract consistently across sibling documents and collections.
+- Distinguish an invalid artifact path from browser or OS file-access permissions. Fix the environment when permissions are the cause; do not mutate the artifact to compensate.
+
+### Structured content
+
+- Parse or protect structure before applying glossary injection, annotation, search-and-replace, or other text transforms.
+- Never rewrite inside HTML tag names, attribute names or values, `<pre>`, `<code>`, fenced code blocks, scripts, or styles unless that structure is the explicit target.
+- Keep one logical source-code listing in one fenced block. Include its comments, attributes, signature, setup, execution, assertions, and closing delimiters in that same block.
+- Treat OCR output such as `11`, `/1`, or `1/` as a candidate code-comment prefix only when surrounding code establishes that context. Compare with the source, restore `//` inside the code block, and never apply the correction globally.
+- Preserve the source language, punctuation, indentation, and comment placement unless correction is supported by the source.
+
+### Validation
+
+- Render the final artifact through the real delivery path whenever possible.
+- For Markdown-to-HTML output, compare source fenced blocks with rendered `<pre><code>` blocks by count, order, language, and decoded content. Normalize only benign differences such as line endings and trailing whitespace.
+- Verify local links and media targets independently from browser permission checks.
+- Treat a mismatch, split listing, missing asset, or injected markup inside code as a failed sanitization, even if the artifact still opens.
 
 ## Revision Strategy
 
