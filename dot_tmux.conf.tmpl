@@ -2,7 +2,9 @@ unbind C-b
 set -g prefix C-q
 
 set -s set-clipboard on
-{{ if eq .chezmoi.os "linux" }}
+{{ if eq .chezmoi.ws "x11" }}
+set -s copy-command 'xsel --clipboard --input'
+{{ else if eq .chezmoi.os "linux" }}
 set -s copy-command 'wl-copy'
 {{ else if eq .chezmoi.os "darwin" }}
 set -s copy-command 'pbcopy'
