@@ -2,7 +2,7 @@ unbind C-b
 set -g prefix C-q
 
 set -s set-clipboard on
-{{ if eq .chezmoi.ws "x11" }}
+{{ if eq .ws "x11" }}
 set -s copy-command 'xclip -selection clipboard'
 {{ else if eq .chezmoi.os "linux" }}
 set -s copy-command 'wl-copy'
