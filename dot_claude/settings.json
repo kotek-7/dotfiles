@@ -39,6 +39,9 @@
     "type": "command",
     "command": "\"$HOME/.claude/statusline.sh\""
   },
+  "enabledPlugins": {
+    "rust-analyzer-lsp@claude-plugins-official": true
+  },
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark"
 }
