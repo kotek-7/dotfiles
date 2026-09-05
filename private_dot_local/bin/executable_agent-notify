@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { release } from "node:os";
-import { spawnSync } from "node:child_process";
+import { delimiter } from "node:path";
+import { spawn, spawnSync } from "node:child_process";
 
 function parseArguments(argv) {
   const options = {
@@ -37,6 +38,42 @@ function parseArguments(argv) {
   return options;
 }
 
+const controlCharacterEscapes = {
+  "\b": "\\b",
+  "\t": "\\t",
+  "\n": "\\n",
+  "\f": "\\f",
+  "\r": "\\r",
+};
+
+function escapeControlCharacters(text) {
+  return text.replace(
+    /[\u0000-\u001f]/g,
+    (character) =>
+      controlCharacterEscapes[character] ??
+      `\\u${character.charCodeAt(0).toString(16).padStart(4, "0")}`,
+  );
+}
+
+function looksLikeJson(text) {
+  const head = text.trimStart()[0];
+  return head === "{" || head === "[";
+}
+
+function parsePayload(raw) {
+  try {
+    return { parsed: true, payload: JSON.parse(raw) };
+  } catch {
+    // エスケープされていない制御文字を含むペイロードを救済する
+  }
+
+  try {
+    return { parsed: true, payload: JSON.parse(escapeControlCharacters(raw)) };
+  } catch {
+    return { parsed: false, payload: {} };
+  }
+}
+
 function readPayload(payloadArgument) {
   let raw = payloadArgument;
   if (!raw) {
@@ -47,13 +84,12 @@ function readPayload(payloadArgument) {
     }
   }
 
-  if (!raw.trim()) return {};
+  if (!raw.trim()) return { payload: {}, text: "" };
 
-  try {
-    return JSON.parse(raw);
-  } catch {
-    return { message: raw };
-  }
+  // 構造化ペイロードは解釈できない場合でも本文へ素通しせず、fallback に委ねる
+  if (looksLikeJson(raw)) return { payload: parsePayload(raw).payload, text: "" };
+
+  return { payload: {}, text: raw };
 }
 
 function normalizeMessage(value) {
@@ -63,11 +99,14 @@ function normalizeMessage(value) {
   return String(value ?? "");
 }
 
-function notificationText(payload, fallback) {
+function notificationText(payload, text, fallback) {
   const value =
+    payload.error ??
     payload.message ??
     payload["last-assistant-message"] ??
     payload.last_assistant_message ??
+    payload.recap ??
+    (text || undefined) ??
     fallback;
   const body = normalizeMessage(value).trim() || fallback;
   return body.slice(0, 900);
@@ -95,6 +134,31 @@ function run(command, args) {
   });
   return !result.error && result.status === 0;
 }
+
+function spawnDetached(command, args) {
+  try {
+    const child = spawn(command, args, { stdio: "ignore", detached: true });
+    child.on("error", () => {});
+    child.unref();
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function findExecutable(name) {
+  for (const directory of (process.env.PATH ?? "").split(delimiter)) {
+    if (!directory) continue;
+    const candidate = `${directory}/${name}`;
+    if (existsSync(candidate)) return candidate;
+  }
+  return "";
+}
+
+const soundThemeDirectories = [
+  "/usr/share/sounds/freedesktop/stereo",
+  "/usr/local/share/sounds/freedesktop/stereo",
+];
 
 const sounds = {
   "linux-x11": {
@@ -136,9 +200,28 @@ function resolveSound(platform, preset) {
   return platformSounds[preset] ?? platformSounds.default ?? "none";
 }
 
+// sound-name ヒントを再生しない通知デーモンがあるため、音は自前で鳴らす
+function playSound(sound) {
+  if (sound === "none") return false;
+
+  const canberra = findExecutable("canberra-gtk-play");
+  if (canberra) return spawnDetached(canberra, ["-i", sound]);
+
+  const player = findExecutable("paplay") || findExecutable("pw-play");
+  if (!player) return false;
+
+  for (const directory of soundThemeDirectories) {
+    const file = `${directory}/${sound}.oga`;
+    if (existsSync(file)) return spawnDetached(player, [file]);
+  }
+
+  return false;
+}
+
 function notifyLinux(app, title, body, sound) {
+  const played = playSound(sound);
   const soundHint =
-    sound === "none"
+    played || sound === "none"
       ? ["-h", "boolean:suppress-sound:true"]
       : ["-h", `string:sound-name:${sound}`];
   return run("notify-send", ["-a", app, ...soundHint, title, body]);
@@ -209,13 +292,13 @@ function main() {
     return 0;
   }
 
-  const payload = readPayload(options.payload);
+  const { payload, text } = readPayload(options.payload);
 
   if (payload.type && payload.type !== "agent-turn-complete") return 0;
 
   const platform = detectPlatform(options.platform);
   const title = normalizeMessage(payload.title).trim() || options.app;
-  const body = notificationText(payload, options.fallback);
+  const body = notificationText(payload, text, options.fallback);
   const sound = resolveSound(platform, options.sound);
 
   if (options.dryRun) {
