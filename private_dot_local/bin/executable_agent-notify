@@ -1,0 +1,241 @@
+#!/usr/bin/env node
+
+import { readFileSync } from "node:fs";
+import { release } from "node:os";
+import { spawnSync } from "node:child_process";
+
+function parseArguments(argv) {
+  const options = {
+    app: "Agent",
+    fallback: "Agent needs your attention.",
+    sound: "default",
+    platform: "",
+    dryRun: false,
+    help: false,
+    payload: "",
+  };
+
+  for (let index = 0; index < argv.length; index += 1) {
+    const argument = argv[index];
+    if (argument === "--app" && argv[index + 1]) {
+      options.app = argv[++index];
+    } else if (argument === "--fallback" && argv[index + 1]) {
+      options.fallback = argv[++index];
+    } else if (argument === "--sound" && argv[index + 1]) {
+      options.sound = argv[++index];
+    } else if (argument === "--platform" && argv[index + 1]) {
+      options.platform = argv[++index];
+    } else if (argument === "--dry-run") {
+      options.dryRun = true;
+    } else if (argument === "--help" || argument === "-h") {
+      options.help = true;
+    } else {
+      options.payload = argument;
+    }
+  }
+
+  return options;
+}
+
+function readPayload(payloadArgument) {
+  let raw = payloadArgument;
+  if (!raw) {
+    try {
+      raw = readFileSync(0, "utf8");
+    } catch {
+      raw = "";
+    }
+  }
+
+  if (!raw.trim()) return {};
+
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return { message: raw };
+  }
+}
+
+function normalizeMessage(value) {
+  if (Array.isArray(value)) {
+    return value.filter(Boolean).map(String).join("\n");
+  }
+  return String(value ?? "");
+}
+
+function notificationText(payload, fallback) {
+  const value =
+    payload.message ??
+    payload["last-assistant-message"] ??
+    payload.last_assistant_message ??
+    fallback;
+  const body = normalizeMessage(value).trim() || fallback;
+  return body.slice(0, 900);
+}
+
+function isWsl() {
+  if (process.env.WSL_DISTRO_NAME || process.env.WSL_INTEROP) return true;
+  return process.platform === "linux" && /microsoft/i.test(release());
+}
+
+function detectPlatform(override) {
+  if (override) return override;
+  if (isWsl()) return "wsl";
+  if (process.platform === "darwin") return "mac";
+  if (process.platform === "linux") {
+    return process.env.WAYLAND_DISPLAY ? "linux-wayland" : "linux-x11";
+  }
+  return "unknown";
+}
+
+function run(command, args) {
+  const result = spawnSync(command, args, {
+    stdio: "ignore",
+    timeout: 5000,
+  });
+  return !result.error && result.status === 0;
+}
+
+const sounds = {
+  "linux-x11": {
+    default: "message",
+    none: "none",
+    success: "complete",
+    warning: "dialog-warning",
+    message: "message-new-instant",
+    alarm: "alarm-clock-elapsed",
+  },
+  "linux-wayland": {
+    default: "message",
+    none: "none",
+    success: "complete",
+    warning: "dialog-warning",
+    message: "message-new-instant",
+    alarm: "alarm-clock-elapsed",
+  },
+  mac: {
+    default: "Glass",
+    none: "none",
+    success: "Hero",
+    warning: "Basso",
+    message: "Ping",
+    alarm: "Sosumi",
+  },
+  wsl: {
+    default: "Notification.Default",
+    none: "none",
+    success: "Notification.IM",
+    warning: "Notification.Reminder",
+    message: "Notification.SMS",
+    alarm: "Notification.Looping.Alarm2",
+  },
+};
+
+function resolveSound(platform, preset) {
+  const platformSounds = sounds[platform] ?? {};
+  return platformSounds[preset] ?? platformSounds.default ?? "none";
+}
+
+function notifyLinux(app, title, body, sound) {
+  const soundHint =
+    sound === "none"
+      ? ["-h", "boolean:suppress-sound:true"]
+      : ["-h", `string:sound-name:${sound}`];
+  return run("notify-send", ["-a", app, ...soundHint, title, body]);
+}
+
+function notifyMac(title, body, sound) {
+  const displayCommand =
+    sound === "none"
+      ? "display notification (item 2 of argv) with title (item 1 of argv)"
+      : "display notification (item 2 of argv) with title (item 1 of argv) sound name (item 3 of argv)";
+  const args = [
+    "-e",
+    "on run argv",
+    "-e",
+    displayCommand,
+    "-e",
+    "end run",
+    title,
+    body,
+  ];
+  if (sound !== "none") args.push(sound);
+  return run("osascript", args);
+}
+
+function notifyWsl(app, title, body, sound) {
+  const script = `
+param([string]$NotificationTitle, [string]$NotificationBody, [string]$ApplicationName, [string]$NotificationSound)
+[Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime] > $null
+[Windows.Data.Xml.Dom.XmlDocument, Windows.Data.Xml.Dom.XmlDocument, ContentType = WindowsRuntime] > $null
+$xml = New-Object Windows.Data.Xml.Dom.XmlDocument
+$xml.LoadXml('<toast><visual><binding template="ToastGeneric"><text></text><text></text></binding></visual></toast>')
+$nodes = $xml.GetElementsByTagName('text')
+$nodes.Item(0).AppendChild($xml.CreateTextNode($NotificationTitle)) > $null
+$nodes.Item(1).AppendChild($xml.CreateTextNode($NotificationBody)) > $null
+$audio = $xml.CreateElement('audio')
+if ($NotificationSound -eq 'none') {
+    $audio.SetAttribute('silent', 'true')
+} else {
+    $audio.SetAttribute('src', "ms-winsoundevent:$NotificationSound")
+}
+$xml.DocumentElement.AppendChild($audio) > $null
+$toast = [Windows.UI.Notifications.ToastNotification]::new($xml)
+[Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier($ApplicationName).Show($toast)
+`;
+
+  return run("powershell.exe", [
+    "-NoLogo",
+    "-NoProfile",
+    "-NonInteractive",
+    "-WindowStyle",
+    "Hidden",
+    "-Command",
+    script,
+    title,
+    body,
+    app,
+    sound,
+  ]);
+}
+
+function main() {
+  const options = parseArguments(process.argv.slice(2));
+  if (options.help) {
+    process.stdout.write(
+      "Usage: agent-notify [--app NAME] [--sound PRESET] [--fallback TEXT] [JSON]\n" +
+        "Sound presets: default, none, success, warning, message, alarm\n",
+    );
+    return 0;
+  }
+
+  const payload = readPayload(options.payload);
+
+  if (payload.type && payload.type !== "agent-turn-complete") return 0;
+
+  const platform = detectPlatform(options.platform);
+  const title = normalizeMessage(payload.title).trim() || options.app;
+  const body = notificationText(payload, options.fallback);
+  const sound = resolveSound(platform, options.sound);
+
+  if (options.dryRun) {
+    process.stdout.write(
+      `${JSON.stringify({ platform, title, body, sound: options.sound, nativeSound: sound })}\n`,
+    );
+    return 0;
+  }
+
+  let delivered = false;
+  if (platform === "linux-x11" || platform === "linux-wayland") {
+    delivered = notifyLinux(options.app, title, body, sound);
+  } else if (platform === "mac") {
+    delivered = notifyMac(title, body, sound);
+  } else if (platform === "wsl") {
+    delivered = notifyWsl(options.app, title, body, sound);
+  }
+
+  if (!delivered) process.stderr.write("\u0007");
+  return 0;
+}
+
+process.exitCode = main();

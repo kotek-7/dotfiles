@@ -2,7 +2,7 @@ model = "gpt-5.5"
 model_reasoning_effort = "medium"
 personality = "pragmatic"
 default_permissions = ":danger-full-access"
-notify = ["python3", "/home/kotek/.codex/scripts/notify-ubuntu.py"]
+notify = ["{{ .chezmoi.homeDir }}/.local/bin/agent-notify", "--app", "Codex", "--sound", "success", "--fallback", "Codex turn complete."]
 show_raw_agent_reasoning = true
 check_for_update_on_startup = false
 
@@ -24,7 +24,7 @@ steer = true
 personality = true
 
 [tui]
-notifications = true
+notifications = ["approval-requested"]
 notification_method = "auto"
 notification_condition = "unfocused"
 status_line = ["model-with-reasoning", "current-dir", "git-branch", "run-state", "permissions"]

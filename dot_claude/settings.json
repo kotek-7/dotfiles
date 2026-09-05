@@ -7,29 +7,18 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 \"$HOME/.claude/scripts/notify.py\" 'Claude Code has a notification for you.'"
+            "command": "\"$HOME/.local/bin/agent-notify\" --app \"Claude Code\" --sound message --fallback \"Claude Code needs your attention.\""
           }
         ]
       }
     ],
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python3 \"$HOME/.claude/scripts/notify.py\" 'Executing bash command...'"
-          }
-        ]
-      }
-    ],
-    "Stop": [
+    "StopFailure": [
       {
         "matcher": "",
         "hooks": [
           {
             "type": "command",
-            "command": "python3 \"$HOME/.claude/scripts/notify.py\" 'Claude Code has finished the task.'"
+            "command": "\"$HOME/.local/bin/agent-notify\" --app \"Claude Code\" --sound warning --fallback \"Claude Code stopped because of an error.\""
           }
         ]
       }

@@ -1,0 +1,65 @@
+#!/bin/sh
+
+notify_line='notify = ["{{ .chezmoi.homeDir }}/.local/bin/agent-notify", "--app", "Codex", "--sound", "success", "--fallback", "Codex turn complete."]'
+tui_line='notifications = ["approval-requested"]'
+
+awk -v notify_line="$notify_line" -v tui_line="$tui_line" '
+BEGIN {
+    section = ""
+    notify_seen = 0
+    tui_seen = 0
+    tui_section_seen = 0
+    has_input = 0
+}
+
+/^[[:space:]]*\[[^]]+\][[:space:]]*$/ {
+    if (!notify_seen) {
+        print notify_line
+        notify_seen = 1
+    }
+    if (section == "tui" && !tui_seen) {
+        print tui_line
+        tui_seen = 1
+    }
+
+    section = $0
+    sub(/^[[:space:]]*\[/, "", section)
+    sub(/\][[:space:]]*$/, "", section)
+    if (section == "tui") tui_section_seen = 1
+}
+
+{
+    has_input = 1
+
+    if (section == "" && $0 ~ /^[[:space:]]*notify[[:space:]]*=/) {
+        if (!notify_seen) print notify_line
+        notify_seen = 1
+        next
+    }
+
+    if (section == "tui" && $0 ~ /^[[:space:]]*notifications[[:space:]]*=/) {
+        if (!tui_seen) print tui_line
+        tui_seen = 1
+        next
+    }
+
+    print
+}
+
+END {
+    if (!has_input) {
+        print notify_line
+        print ""
+        print "[tui]"
+        print tui_line
+    } else {
+        if (!notify_seen) print notify_line
+        if (section == "tui" && !tui_seen) print tui_line
+        if (!tui_section_seen) {
+            print ""
+            print "[tui]"
+            print tui_line
+        }
+    }
+}
+'
