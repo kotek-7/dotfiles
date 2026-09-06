@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Get pending notifications from dunst
+#
+# Returns:
+#   The count of notifications kept in history
+
+set -Eeu -o pipefail
+
+LABEL_COLOR=${label_color:-$(xrescat i3xrocks.label.color "#7B8394")}
+VALUE_FONT=${font:-$(xrescat i3xrocks.value.font "JetBrains Mono Medium 13")}
+
+BUTTON="${button:-}"
+
+if command -v dunstctl > /dev/null && dunstctl is-paused > /dev/null 2>&1; then
+    NOTIFICATION_COUNT=$(dunstctl count history)
+    PAUSED=$(dunstctl is-paused)
+else
+    NOTIFICATION_COUNT=0
+    PAUSED=false
+fi
+
+if [ "$PAUSED" = "true" ]; then
+    VALUE_COLOR=${color:-$(xrescat i3xrocks.critical.color "#D8DEE9")}
+    LABEL_ICON=${label_icon:-$(xrescat i3xrocks.label.notify.none N)}
+elif [ "$NOTIFICATION_COUNT" -gt 0 ]; then
+    VALUE_COLOR=${color:-$(xrescat i3xrocks.warning "#D8DEE9")}
+    LABEL_ICON=${label_icon:-$(xrescat i3xrocks.label.notify.some N)}
+else
+    VALUE_COLOR=${color:-$(xrescat i3xrocks.value.color "#D8DEE9")}
+    LABEL_ICON=${label_icon:-$(xrescat i3xrocks.label.notify.none N)}
+fi
+
+echo "<span font_desc=\"${VALUE_FONT}\" color=\"${LABEL_COLOR}\">${LABEL_ICON}</span> <span font_desc=\"${VALUE_FONT}\" color=\"${VALUE_COLOR}\">${NOTIFICATION_COUNT}</span>"
+
+case "${BUTTON}" in
+    1) dunstctl history-pop ;;
+    3) dunstctl set-paused toggle ;;
+esac

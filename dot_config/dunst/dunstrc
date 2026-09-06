@@ -1,0 +1,84 @@
+[global]
+    monitor = 0
+    follow = mouse
+
+    width = (280, 520)
+    height = 320
+    origin = top-right
+    offset = 16x16
+    scale = 0
+    notification_limit = 6
+
+    indicate_hidden = yes
+    transparency = 5
+    separator_height = 2
+    padding = 12
+    horizontal_padding = 14
+    text_icon_padding = 8
+    frame_width = 2
+    gap_size = 6
+    separator_color = frame
+    sort = yes
+    idle_threshold = 120
+
+    font = RobotoMono Nerd Font 11
+    line_height = 2
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = 60
+    ellipsize = end
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = no
+
+    enable_recursive_icon_lookup = true
+    icon_theme = Yaru, Adwaita
+    icon_position = left
+    min_icon_size = 24
+    max_icon_size = 48
+
+    sticky_history = yes
+    history_length = 100
+
+    browser = /usr/bin/xdg-open
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    corner_radius = 8
+    ignore_dbusclose = false
+
+    force_xwayland = false
+    force_xinerama = false
+
+    mouse_left_click = do_action, close_current
+    mouse_middle_click = close_all
+    mouse_right_click = close_current
+
+[urgency_low]
+    background = "#282a36"
+    foreground = "#6272a4"
+    frame_color = "#44475a"
+    timeout = 6
+
+[urgency_normal]
+    background = "#282a36"
+    foreground = "#f8f8f2"
+    frame_color = "#bd93f9"
+    timeout = 12
+
+[urgency_critical]
+    background = "#282a36"
+    foreground = "#f8f8f2"
+    frame_color = "#ff5555"
+    timeout = 0
+
+[claude-code]
+    appname = "Claude Code"
+    frame_color = "#8be9fd"
+
+[codex]
+    appname = "Codex"
+    frame_color = "#50fa7b"

@@ -1,0 +1,6 @@
+!regolith.look.path: /usr/share/regolith-look/nord
+regolith.look.path: /usr/share/regolith-look/dracula
+
+! Notifications
+wm.program.notifications: /usr/bin/dunst
+wm.program.notification_ui: dunstctl history-pop
