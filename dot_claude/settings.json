@@ -1,29 +1,5 @@
 {
   "model": "opus",
-  "hooks": {
-    "Notification": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "\"$HOME/.local/bin/agent-notify\" --app \"Claude Code\" --sound message --fallback \"Claude Code needs your attention.\""
-          }
-        ]
-      }
-    ],
-    "StopFailure": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "\"$HOME/.local/bin/agent-notify\" --app \"Claude Code\" --sound warning --fallback \"Claude Code stopped because of an error.\""
-          }
-        ]
-      }
-    ]
-  },
   "statusLine": {
     "type": "command",
     "command": "\"$HOME/.claude/statusline.sh\""
