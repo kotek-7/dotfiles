@@ -1,0 +1,3 @@
+interface:
+  display_name: "Restructure"
+  short_description: "巨大化したプロトタイプを機能別に再構成し、依存関係と技術選定を見直す"
