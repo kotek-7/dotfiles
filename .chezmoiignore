@@ -1,1 +1,7 @@
 .git
+
+# Platform binaries are installed by Impeccable, not synced as dotfiles.
+.agents/skills/impeccable/scripts/bin
+.agents/skills/impeccable/scripts/bin/**
+.claude/skills/impeccable/scripts/bin
+.claude/skills/impeccable/scripts/bin/**
