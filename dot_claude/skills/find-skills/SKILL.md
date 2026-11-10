@@ -1,11 +1,11 @@
 ---
 name: find-skills
-description: Helps users discover and evaluate reusable skills when they ask how to do X, want a skill for X, or want to extend Codex with a reusable workflow.
+description: Helps users discover and install agent skills when they ask questions like "how do I do X", "find a skill for X", "is there a skill that can...", or express interest in extending capabilities. This skill should be used when the user is looking for functionality that might exist as an installable skill.
 ---
 
 # Find Skills
 
-This skill helps you discover skills that may already be available in Codex or in the broader open agent skills ecosystem.
+This skill helps you discover and install skills from the open agent skills ecosystem.
 
 ## When to Use This Skill
 
@@ -20,17 +20,13 @@ Use this skill when the user:
 
 ## What is the Skills CLI?
 
-Codex discovers installed skills from local skill directories and curated additions can be installed with `$skill-installer`.
-
-The external Skills CLI (`npx skills`) is the package manager for the broader open agent skills ecosystem. Use it only when the user explicitly wants that ecosystem, not when they are asking about the skills already available to Codex.
+The Skills CLI (`npx skills`) is the package manager for the open agent skills ecosystem. Skills are modular packages that extend agent capabilities with specialized knowledge, workflows, and tools.
 
 **Key commands:**
 
-- `$skill-installer <skill>` - Install a curated Codex skill
-- `npx skills find [query]` - Search the external open agent skills ecosystem
-- `npx skills add <package>` - Install an external skill package
-- `npx skills check` - Check external skills for updates
-- `npx skills update` - Update all external installed skills
+- `npx skills find [query] [--owner <owner>]` - Search for skills interactively or by keyword, optionally scoped to a GitHub owner
+- `npx skills add <package>` - Install a skill from GitHub or other sources
+- `npx skills update` - Update all installed skills
 
 **Browse skills at:** https://skills.sh/
 
@@ -44,21 +40,20 @@ When a user asks for help with something, identify:
 2. The specific task (e.g., writing tests, creating animations, reviewing PRs)
 3. Whether this is a common enough task that a skill likely exists
 
-### Step 2: Check the Best Match First
+### Step 2: Check the Leaderboard First
 
-Before running an external CLI search, check whether a suitable skill is already installed in Codex or available through the built-in installer. If the user explicitly wants the external ecosystem, check the [skills.sh leaderboard](https://skills.sh/) to see if a well-known skill already exists for the domain. The leaderboard ranks skills by total installs, surfacing the most popular and battle-tested options.
+Before running a CLI search, check the [skills.sh leaderboard](https://skills.sh/) to see if a well-known skill already exists for the domain. The leaderboard ranks skills by total installs, surfacing the most popular and battle-tested options.
 
 For example, top skills for web development include:
-
 - `vercel-labs/agent-skills` — React, Next.js, web design (100K+ installs each)
 - `anthropics/skills` — Frontend design, document processing (100K+ installs)
 
 ### Step 3: Search for Skills
 
-If the built-in options do not cover the user's need and the user explicitly wants the external ecosystem, run the find command:
+If the leaderboard doesn't cover the user's need, run the find command:
 
 ```bash
-npx skills find [query]
+npx skills find [query] [--owner <owner>]
 ```
 
 For example:
