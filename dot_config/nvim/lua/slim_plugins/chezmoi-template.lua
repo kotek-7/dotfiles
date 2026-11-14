@@ -1,4 +1,4 @@
-{
+return {
   "dpezto/chezmoi-template.nvim",
   lazy = false,
   opts = {
