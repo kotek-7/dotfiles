@@ -5,6 +5,5 @@ return {
   opts = {},
   keys = {
     { mode = "n", "<C-e>", "<cmd>Neotree toggle<CR>", {} },
-    { mode = "n", "<C-m>", "<cmd>Neotree reveal<CR>", {} },
   },
 }
