@@ -35,7 +35,7 @@ path+=("$HOME/bin")
 {{ if eq .chezmoi.os "linux" }}
 export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
 {{ end }}
-export EDITOR="$(command -v code) --wait"
+export EDITOR="$(command -v nvim)"
 
 # alias
 alias coda="code ."
