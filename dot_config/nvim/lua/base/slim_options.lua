@@ -21,6 +21,6 @@ vim.opt.shiftwidth = 2
 
 vim.cmd "colorscheme cyberdream"
 
-vim.diagnostic.config({
-  underline = true
-})
+vim.diagnostic.config {
+  underline = true,
+}

@@ -1,7 +1,7 @@
 return {
-  'gen740/SmoothCursor.nvim',
+  "gen740/SmoothCursor.nvim",
   lazy = false,
   config = function()
-    require('smoothcursor').setup()
+    require("smoothcursor").setup()
   end,
 }

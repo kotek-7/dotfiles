@@ -5,10 +5,17 @@ return {
   opts = {
     current_line_blame = true,
     current_line_blame_opts = {
-      delay = 0
-    }
+      delay = 0,
+    },
   },
   keys = {
-    { "<leader>tb", function() require("gitsigns").toggle_current_line_blame() end, mode = "n", desc = "Toggle Blame" }
-  }
+    {
+      "<leader>tb",
+      function()
+        require("gitsigns").toggle_current_line_blame()
+      end,
+      mode = "n",
+      desc = "Toggle Blame",
+    },
+  },
 }

@@ -25,5 +25,5 @@ return {
     { "<P", "<Plug>(YankyPutIndentBeforeShiftLeft)", desc = "Put Before and Indent Left" },
     { "=p", "<Plug>(YankyPutAfterFilter)", desc = "Put After Applying a Filter" },
     { "=P", "<Plug>(YankyPutBeforeFilter)", desc = "Put Before Applying a Filter" },
-  }
+  },
 }

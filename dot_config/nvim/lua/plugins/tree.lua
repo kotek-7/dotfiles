@@ -3,7 +3,7 @@ return {
   lazy = true,
   version = "*",
   keys = {
-    { "<leader>e", mode = "n"},
+    { "<leader>e", mode = "n" },
   },
   cmd = {
     "NvimTreeToggle",
@@ -12,7 +12,7 @@ return {
     "NvimTreeFocus",
   },
   config = function()
-    vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<CR>')
+    vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
 
     require("nvim-tree").setup {
       hijack_cursor = true,
@@ -23,9 +23,9 @@ return {
       renderer = {
         icons = {
           show = {
-            modified = true
-          }
-        }
+            modified = true,
+          },
+        },
       },
       update_focused_file = {
         enable = true,

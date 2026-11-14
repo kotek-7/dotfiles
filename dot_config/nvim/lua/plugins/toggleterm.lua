@@ -1,5 +1,5 @@
 return {
-  'akinsho/toggleterm.nvim',
+  "akinsho/toggleterm.nvim",
   lazy = true,
   version = "*",
   keys = {
@@ -7,18 +7,18 @@ return {
     { "<c-\\>", mode = "n" },
   },
   config = function()
-    local Terminal = require('toggleterm.terminal').Terminal
-    local lazygit  = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
+    local Terminal = require("toggleterm.terminal").Terminal
+    local lazygit = Terminal:new { cmd = "lazygit", hidden = true, direction = "float" }
     local function lazygit_toggle()
       lazygit:toggle()
     end
 
-    vim.keymap.set('n', '<leader>gg', lazygit_toggle, { desc = "Toggle lazygit" })
+    vim.keymap.set("n", "<leader>gg", lazygit_toggle, { desc = "Toggle lazygit" })
 
     local shell = ""
-    if (vim.g.os == "linux") then
+    if vim.g.os == "linux" then
       shell = "zsh"
-    elseif (vim.g.os == "windows") then
+    elseif vim.g.os == "windows" then
       shell = "pwsh"
     end
 
@@ -26,7 +26,7 @@ return {
       open_mapping = [[<C-\>]],
       hide_numbers = true,
       direction = "float",
-      shell = shell
+      shell = shell,
     }
   end,
 }

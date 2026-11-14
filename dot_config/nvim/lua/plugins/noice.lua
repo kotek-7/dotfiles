@@ -10,8 +10,8 @@ return {
         ["cmp.entry.get_documentation"] = true,
       },
       progress = {
-        enabled = false
-      }
+        enabled = false,
+      },
     },
     -- routes = {
     --   {

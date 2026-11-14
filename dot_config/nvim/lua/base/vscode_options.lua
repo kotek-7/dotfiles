@@ -19,9 +19,9 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.shiftwidth = 2
 
-vim.diagnostic.config({
-  underline = true
-})
+vim.diagnostic.config {
+  underline = true,
+}
 
-local vscode = require('vscode')
+local vscode = require "vscode"
 vim.notify = vscode.notify

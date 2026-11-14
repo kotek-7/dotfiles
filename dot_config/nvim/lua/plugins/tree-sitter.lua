@@ -2,7 +2,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter-context",
     lazy = true,
-    opts = {}
+    opts = {},
   },
   {
     "yioneko/nvim-yati",
@@ -15,9 +15,9 @@ return {
     event = { "VeryLazy" },
     build = ":TSUpdate",
     config = function()
-      local configs = require("nvim-treesitter.configs")
+      local configs = require "nvim-treesitter.configs"
 
-      configs.setup({
+      configs.setup {
         ensure_installed = { "lua", "vim", "vimdoc", "javascript", "html", "rust", "tsx" },
         sync_install = false,
         highlight = { enable = true },
@@ -32,12 +32,12 @@ return {
           --   "asis": use current indent as-is
           --   "cindent": see `:h cindent()`
           -- Or a custom function return the final indent result.
-          default_fallback = "auto"
+          default_fallback = "auto",
         },
         indent = {
-          enable = false -- disable builtin indent module
-        }
-      })
+          enable = false, -- disable builtin indent module
+        },
+      }
     end,
-  }
+  },
 }

@@ -1,14 +1,14 @@
 return {
-  'mrcjkb/rustaceanvim',
+  "mrcjkb/rustaceanvim",
   lazy = true,
   event = "LspAttach",
-  version = '^4', -- Recommended
+  version = "^4", -- Recommended
   ft = { "rust" },
   opts = {
     server = {
       on_attach = function(_, bufnr)
         vim.keymap.set("n", "<leader>ca", function()
-          vim.cmd.RustLsp("codeAction")
+          vim.cmd.RustLsp "codeAction"
         end, { desc = "Code Action", buffer = bufnr })
       end,
       default_settings = {
@@ -27,7 +27,7 @@ return {
             command = "clippy",
             extraArgs = { "--no-deps" },
           },
-procMacro = {
+          procMacro = {
             enable = true,
             ignored = {
               ["async-trait"] = { "async_trait" },

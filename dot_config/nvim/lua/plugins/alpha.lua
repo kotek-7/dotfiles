@@ -1,10 +1,10 @@
 return {
-  'goolord/alpha-nvim',
+  "goolord/alpha-nvim",
   lazy = true,
   event = "VimEnter",
-  config = function ()
-    local alpha = require('alpha' )
-    local dashboard = require('alpha.themes.dashboard')
+  config = function()
+    local alpha = require "alpha"
+    local dashboard = require "alpha.themes.dashboard"
     dashboard.section.header.val = {
       [[                                   ]],
       [[   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣿⣶⣿⣦⣼⣆          ]],
@@ -28,5 +28,5 @@ return {
       dashboard.button("SPC s l", "  Open last session", "<leader>sl"),
     }
     alpha.setup(dashboard.config)
-  end
+  end,
 }

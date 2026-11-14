@@ -14,18 +14,18 @@ local function removePathFromString(inputString)
   local splittedStrings = splitString(inputString)
 
   local processedStrings = {}
-  for _,word in ipairs(splittedStrings) do
+  for _, word in ipairs(splittedStrings) do
     if not isPath(word) then
       table.insert(processedStrings, word)
     end
   end
 
   local processedString = ""
-  for i,word in ipairs(processedStrings) do
+  for i, word in ipairs(processedStrings) do
     if i == #processedStrings then
-      processedString = processedString..word
+      processedString = processedString .. word
     else
-      processedString = processedString..word.." "
+      processedString = processedString .. word .. " "
     end
   end
 
@@ -36,8 +36,8 @@ return {
   "j-hui/fidget.nvim",
   lazy = true,
   event = "LspAttach",
-  config = function ()
-    local fidget = require("fidget");
+  config = function()
+    local fidget = require "fidget"
     fidget.setup {
       notification = {
         window = {
@@ -74,10 +74,10 @@ return {
                 end
               end,
             },
-          }
-        }
-      }
+          },
+        },
+      },
     }
   end,
-  tag = "legacy"
+  tag = "legacy",
 }

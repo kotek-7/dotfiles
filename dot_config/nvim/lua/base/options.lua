@@ -25,6 +25,6 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.g.sqlite_clib_path = "sqlite3.dll"
 
-vim.diagnostic.config({
-  underline = true
-})
+vim.diagnostic.config {
+  underline = true,
+}

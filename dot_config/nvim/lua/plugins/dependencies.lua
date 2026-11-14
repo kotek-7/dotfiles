@@ -1,12 +1,12 @@
 return {
-  { 'nvim-tree/nvim-web-devicons', lazy = true },
-  { 'BurntSushi/ripgrep', lazy = true },
+  { "nvim-tree/nvim-web-devicons", lazy = true },
+  { "BurntSushi/ripgrep", lazy = true },
   { "kkharji/sqlite.lua", lazy = true },
-  { 'sharkdp/fd', lazy = true },
+  { "sharkdp/fd", lazy = true },
   { "nvim-lua/plenary.nvim", lazy = true },
   { "nvimtools/none-ls.nvim", lazy = true },
   {
-    'rafamadriz/friendly-snippets',
+    "rafamadriz/friendly-snippets",
     lazy = true,
     cond = false,
     config = function()
@@ -23,7 +23,7 @@ return {
       {
         "<leader>un",
         function()
-          require("notify").dismiss({ silent = true, pending = true })
+          require("notify").dismiss { silent = true, pending = true }
         end,
         desc = "Dismiss All Notifications",
       },
@@ -47,21 +47,21 @@ return {
     lazy = true,
     branch = "0.2.x",
     config = function()
-      require("telescope").load_extension("smart_open")
+      require("telescope").load_extension "smart_open"
     end,
   },
   {
     "nvim-telescope/telescope-frecency.nvim",
     lazy = true,
     config = function()
-      require("telescope").load_extension("frecency")
+      require("telescope").load_extension "frecency"
     end,
   },
   {
     "ahmedkhalf/project.nvim",
     lazy = true,
-    config = function ()
-      require('telescope').load_extension('projects')
-    end
-  }
+    config = function()
+      require("telescope").load_extension "projects"
+    end,
+  },
 }
