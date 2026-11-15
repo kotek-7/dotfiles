@@ -7,6 +7,6 @@ return {
   {
     "scottmckendry/cyberdream.nvim",
     priority = 1000,
-    opts = { variant = default, italic_comments = true, transparent = true },
+    opts = { variant = "default", italic_comments = true, transparent = true },
   },
 }
