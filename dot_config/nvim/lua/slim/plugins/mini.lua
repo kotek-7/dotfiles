@@ -57,7 +57,6 @@ return {
       vim.notify = require('mini.notify').make_notify({})
     end
   },
-  
 
   -- Display
   {
@@ -194,4 +193,11 @@ return {
       },
     },
   },
+  
+  -- Startup
+  {
+    "nvim-mini/mini.starter",
+    lazy = false,
+    opts = {}
+  }
 }
