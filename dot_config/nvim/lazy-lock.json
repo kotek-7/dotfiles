@@ -9,6 +9,7 @@
   "mini-git": { "branch": "main", "commit": "f1fbf05c28be1b11008033a0644b71d107bed03d" },
   "mini.ai": { "branch": "main", "commit": "c2e6e88a9de01b5aec5c3cffee1277b9ac8a6d69" },
   "mini.bracketed": { "branch": "main", "commit": "ee8888fe7eda8a187bd2bfa0a992213451745ecd" },
+  "mini.clue": { "branch": "main", "commit": "c8f246f080d4a7907990199151464978b43c9406" },
   "mini.completion": { "branch": "main", "commit": "8a36acb1bf6f927b6b6e35adcf84d82b940743d7" },
   "mini.diff": { "branch": "main", "commit": "91d6ce4b7f400439fe761f01a58280f2c0f99c01" },
   "mini.files": { "branch": "main", "commit": "52b6a0ff498edd0755c71c3476b30ba07798989a" },
