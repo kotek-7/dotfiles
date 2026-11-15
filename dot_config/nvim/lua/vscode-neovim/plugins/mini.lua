@@ -21,40 +21,6 @@ return {
     opts = {},
   },
 
-  -- Fuzzy finder
-  {
-    "nvim-mini/mini.pick",
-    lazy = true,
-    opts = {},
-    keys = {
-      {
-        "<leader><leader>",
-        function() MiniPick.builtin.files() end,
-        desc = "Find files",
-      },
-      {
-        "<leader>ff",
-        function() MiniPick.builtin.files() end,
-        desc = "Find files",
-      },
-      {
-        "<leader>fg",
-        function() MiniPick.builtin.grep_live() end,
-        desc = "Live grep",
-      },
-      {
-        "<leader>fb",
-        function() MiniPick.builtin.buffers() end,
-        desc = "Buffers",
-      },
-      {
-        "<leader>fh",
-        function() MiniPick.builtin.help() end,
-        desc = "Help",
-      },
-    },
-  },
-
   -- Navigation
   {
     "nvim-mini/mini.jump",
