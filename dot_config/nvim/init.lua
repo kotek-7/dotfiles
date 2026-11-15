@@ -23,6 +23,7 @@ local opts = {
   },
 }
 
+-- 環境変数を設定 
 local uname = vim.loop.os_uname()
 
 if uname.sysname == "Linux" then
@@ -31,8 +32,10 @@ elseif uname.sysname == "Windows_NT" then
   vim.g.os = "windows"
 end
 
+-- slim プロファイルを読み込む
 vim.g.slim_mode = true
 
+-- 環境ごとにプロファイルをロード
 if vim.g.vscode then
   require "vscode/keybinds"
   require("lazy").setup("vscode/plugins", opts)
@@ -47,6 +50,7 @@ else
   require "rich/options"
 end
 
+-- override設定があれば有効化
 local function file_exists(path)
   local file = io.open(path, "r")
   if file then
