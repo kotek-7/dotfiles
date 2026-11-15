@@ -37,9 +37,9 @@ vim.g.slim_mode = true
 
 -- 環境ごとにプロファイルをロード
 if vim.g.vscode then
-  require "vscode/keybinds"
-  require("lazy").setup("vscode/plugins", opts)
-  require "vscode/options"
+  require "vscode-neovim/keybinds"
+  require("lazy").setup("vscode-neovim/plugins", opts)
+  require "vscode-neovim/options"
 elseif vim.g.slim_mode then
   require "slim/keybinds"
   require("lazy").setup("slim/plugins", opts)
