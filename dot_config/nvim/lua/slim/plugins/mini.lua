@@ -47,7 +47,7 @@ return {
       {
         "<leader>e",
         function()
-          local files = require("mini-files")
+          local files = require("mini.files")
           local path = vim.api.nvim_buf_get_name(0)
           files.open(path ~= "" and path or nil)
         end,
@@ -109,7 +109,7 @@ return {
     opts = function()
       return {
         snippets = {
-          require("mini-snippets").gen_loader.from_lang(),
+          require("mini.snippets").gen_loader.from_lang(),
         },
       }
     end,
@@ -131,7 +131,7 @@ return {
       {
         ";",
         function()
-          local jump = require("mini-jump2d")
+          local jump = require("mini.jump2d")
           jump.start(jump.builtin_opts.query)
         end,
         mode = { "n", "x", "o" },
