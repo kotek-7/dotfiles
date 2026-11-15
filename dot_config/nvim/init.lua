@@ -44,9 +44,9 @@ elseif vim.g.slim_mode then
   require("lazy").setup("slim_plugins", opts)
   require "base/slim_options"
 else
-  require "base/keybinds"
-  require("lazy").setup("plugins", opts)
-  require "base/options"
+  require "base/rich_keybinds"
+  require("lazy").setup("rich_plugins", opts)
+  require "base/rich_options"
 end
 
 local function file_exists(path)
