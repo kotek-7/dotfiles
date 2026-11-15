@@ -45,7 +45,7 @@ return {
     opts = {},
     keys = {
       {
-        "<leader>e",
+        "<C-e>",
         function()
           local files = require("mini.files")
           local path = vim.api.nvim_buf_get_name(0)
