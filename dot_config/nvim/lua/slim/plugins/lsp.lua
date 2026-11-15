@@ -1,7 +1,20 @@
 return {
-  "neovim/nvim-lspconfig",
+  "mason-org/mason-lspconfig.nvim",
   lazy = false,
-  config = function()
+  dependencies = {
+    { "mason-org/mason.nvim", opts = {} },
+    "neovim/nvim-lspconfig",
+  },
+  opts = {
+    ensure_installed = {
+      "lua_ls",
+      "ts_ls",
+      "html",
+      "cssls",
+    },
+    automatic_enable = true,
+  },
+  init = function()
     vim.lsp.config("lua_ls", {
       settings = {
         Lua = {
@@ -11,21 +24,25 @@ return {
         },
       },
     })
-
-    vim.lsp.enable({
-      "lua_ls",
-      "ts_ls",
-      "html",
-      "cssls",
-    })
-
-    vim.keymap.set("n", "<leader>cf",
-      vim.lsp.buf.format, { desc = "Format" })
-
-    vim.keymap.set("n", "<leader>ca",
-      vim.lsp.buf.code_action, { desc = "Code action" })
-
-    vim.keymap.set("n", "<leader>cr",
-      vim.lsp.buf.rename, { desc = "Rename" })
   end,
+  keys = {
+    {
+      "<leader>ca",
+      vim.lsp.buf.code_action,
+      desc = "Code action",
+    },
+    {
+      "<leader>cr",
+      vim.lsp.buf.rename,
+      desc = "Rename",
+    },
+    {
+      "<leader>cf",
+      function()
+        vim.lsp.buf.format({ async = true })
+      end,
+      desc = "Format",
+    },
+  },
 }
+
