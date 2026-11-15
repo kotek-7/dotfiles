@@ -48,6 +48,24 @@ return {
       }
     end
   },
+
+  -- Notifications
+  {
+    "nvim-mini/mini.notify",
+    lazy = false,
+    opts = function()
+      vim.notify = require('mini.notify').make_notify({})
+    end
+  }
+  
+
+  -- Display
+  {
+    "nvim-mini/mini.cursorword",
+    lazy = false,
+    opts = {},
+  },
+
   -- Editing
   {
     "nvim-mini/mini.ai",
