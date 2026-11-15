@@ -15,6 +15,51 @@ return {
     lazy = false,
     opts = {},
   },
+  {
+    "nvim-mini/mini.clue",
+    lazy = false,
+    opts = {
+      triggers = {
+        -- Leader triggers
+        { mode = { 'n', 'x' }, keys = '<Leader>' },
+
+        -- `[` and `]` keys
+        { mode = 'n',          keys = '[' },
+        { mode = 'n',          keys = ']' },
+
+        -- Built-in completion
+        { mode = 'i',          keys = '<C-x>' },
+
+        -- `g` key
+        { mode = { 'n', 'x' }, keys = 'g' },
+
+        -- Marks
+        { mode = { 'n', 'x' }, keys = "'" },
+        { mode = { 'n', 'x' }, keys = '`' },
+
+        -- Registers
+        { mode = { 'n', 'x' }, keys = '"' },
+        { mode = { 'i', 'c' }, keys = '<C-r>' },
+
+        -- Window commands
+        { mode = 'n',          keys = '<C-w>' },
+
+        -- `z` key
+        { mode = { 'n', 'x' }, keys = 'z' },
+      },
+
+      clues = {
+        -- Enhance this by adding descriptions for <Leader> mapping groups
+        require(miniclue).gen_clues.square_brackets(),
+        require(miniclue).gen_clues.builtin_completion(),
+        require(miniclue).gen_clues.g(),
+        require(miniclue).gen_clues.marks(),
+        require(miniclue).gen_clues.registers(),
+        require(miniclue).gen_clues.windows(),
+        require(miniclue).gen_clues.z(),
+      },
+    }
+  }
 
   -- Editing
   {
