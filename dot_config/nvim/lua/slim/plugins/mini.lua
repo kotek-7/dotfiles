@@ -1,53 +1,53 @@
 return {
   -- UI
   {
-    "nvim-mini/mini.icons",
+    "nvim-mini/mini-icons",
     lazy = false,
     opts = {},
   },
   {
-    "nvim-mini/mini.statusline",
+    "nvim-mini/mini-statusline",
     lazy = false,
     opts = {},
   },
   {
-    "nvim-mini/mini.tabline",
+    "nvim-mini/mini-tabline",
     lazy = false,
     opts = {},
   },
 
   -- Editing
   {
-    "nvim-mini/mini.ai",
+    "nvim-mini/mini-ai",
     event = "VeryLazy",
     opts = {},
   },
   {
-    "nvim-mini/mini.surround",
+    "nvim-mini/mini-surround",
     event = "VeryLazy",
     opts = {},
   },
   {
-    "nvim-mini/mini.pairs",
+    "nvim-mini/mini-pairs",
     event = "InsertEnter",
     opts = {},
   },
   {
-    "nvim-mini/mini.bracketed",
+    "nvim-mini/mini-bracketed",
     event = "VeryLazy",
     opts = {},
   },
 
   -- Files
   {
-    "nvim-mini/mini.files",
+    "nvim-mini/mini-files",
     lazy = true,
     opts = {},
     keys = {
       {
         "<leader>e",
         function()
-          local files = require("mini.files")
+          local files = require("mini-files")
           local path = vim.api.nvim_buf_get_name(0)
           files.open(path ~= "" and path or nil)
         end,
@@ -58,7 +58,7 @@ return {
 
   -- Fuzzy finder
   {
-    "nvim-mini/mini.pick",
+    "nvim-mini/mini-pick",
     lazy = true,
     opts = {},
     keys = {
@@ -92,24 +92,24 @@ return {
 
   -- Git
   {
-    "nvim-mini/mini.diff",
+    "nvim-mini/mini-diff",
     event = { "BufReadPost", "BufNewFile" },
     opts = {},
   },
   {
-    "nvim-mini/mini.git",
+    "nvim-mini/mini-git",
     cmd = "Git",
     opts = {},
   },
 
   -- Snippets
   {
-    "nvim-mini/mini.snippets",
+    "nvim-mini/mini-snippets",
     lazy = false,
     opts = function()
       return {
         snippets = {
-          require("mini.snippets").gen_loader.from_lang(),
+          require("mini-snippets").gen_loader.from_lang(),
         },
       }
     end,
@@ -117,21 +117,21 @@ return {
 
   -- Completion
   {
-    "nvim-mini/mini.completion",
+    "nvim-mini/mini-completion",
     event = "InsertEnter",
     opts = {},
   },
 
   -- Navigation
   {
-    "nvim-mini/mini.jump2d",
+    "nvim-mini/mini-jump2d",
     lazy = true,
     opts = {},
     keys = {
       {
         ";",
         function()
-          local jump = require("mini.jump2d")
+          local jump = require("mini-jump2d")
           jump.start(jump.builtin_opts.query)
         end,
         mode = { "n", "x", "o" },
