@@ -59,8 +59,7 @@ return {
         require(miniclue).gen_clues.z(),
       },
     }
-  }
-
+  },
   -- Editing
   {
     "nvim-mini/mini.ai",
