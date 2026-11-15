@@ -75,7 +75,7 @@ return {
     "nvim-mini/mini.files",
     lazy = true,
     opts = {},
-    keys {
+    keys = {
       {
         "<C-e>",
         function()
