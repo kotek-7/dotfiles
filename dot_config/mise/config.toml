@@ -6,6 +6,7 @@ bun = "latest"
 "cargo:ripgrep" = { version = "latest", features = ["pcre2"] }
 "cargo:sd" = "latest"
 "cargo:sqlx-cli" = "latest"
+"cargo:tree-sitter-cli" = "latest"
 "cargo:zoxide" = "latest"
 clang = "latest"
 claude = "latest"
