@@ -16,9 +16,6 @@ vim.keymap.set("n", "ZQ", "<NOP>")
 -- put後行末に移動
 vim.keymap.set({ "n", "v" }, "p", "p`]")
 
--- pをレジスタに登録しない
-vim.keymap.set({ "n", "v" }, "p", '"_dP', { desc = "Paste without yanking" })
-
 -- レジスタに登録しない
 vim.keymap.set("n", "x", '"_x')
 vim.keymap.set("n", "X", '"_X')

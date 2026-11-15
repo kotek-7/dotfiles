@@ -11,6 +11,8 @@ return {
       "ts_ls",
       "html",
       "cssls",
+      "rust_analyzer",
+      "clangd",
     },
     automatic_enable = true,
   },

@@ -27,9 +27,6 @@ vim.keymap.set("n", "<S-h>", ":bprev<CR>", { silent = true })
 vim.keymap.set("n", "ZZ", "<NOP>")
 vim.keymap.set("n", "ZQ", "<NOP>")
 
--- pをレジスタに登録しない
-vim.keymap.set({ "n", "v" }, "p", '"_dP', { desc = "Paste without yanking" })
-
 -- レジスタに登録しない
 vim.keymap.set("n", "x", '"_x')
 vim.keymap.set("n", "X", '"_X')
