@@ -56,7 +56,7 @@ return {
     opts = function()
       vim.notify = require('mini.notify').make_notify({})
     end
-  }
+  },
   
 
   -- Display
