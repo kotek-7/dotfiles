@@ -97,7 +97,7 @@ return {
     opts = {},
   },
   {
-    "nvim-mini/mini",
+    "nvim-mini/mini-git",
     cmd = "Git",
     opts = {},
   },
