@@ -24,3 +24,6 @@ vim.cmd "colorscheme cyberdream"
 vim.diagnostic.config {
   underline = true,
 }
+
+vim.o.autocomplete = false
+vim.opt.completeopt = { "menuone", "noselect", "fuzzy" }
