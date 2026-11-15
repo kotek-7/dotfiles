@@ -13,6 +13,7 @@ return {
       "cssls",
       "rust_analyzer",
       "clangd",
+      "oxfmt"
     },
     automatic_enable = true,
   },
@@ -47,4 +48,3 @@ return {
     },
   },
 }
-
