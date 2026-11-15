@@ -3,7 +3,6 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 4
 vim.opt.clipboard = "unnamedplus"
 vim.opt.encoding = "utf-8"
-vim.opt.fileencoding = "utf-8"
 
 vim.opt.number = true
 vim.opt.relativenumber = true
