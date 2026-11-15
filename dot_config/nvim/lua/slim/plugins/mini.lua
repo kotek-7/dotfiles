@@ -156,6 +156,11 @@ return {
 
   -- Navigation
   {
+    "nvim-mini/mini.jump",
+    lazy = true,
+    opts = {},
+  },
+  {
     "nvim-mini/mini.jump2d",
     lazy = true,
     opts = {},
