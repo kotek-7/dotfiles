@@ -20,9 +20,17 @@ vim.opt.shiftwidth = 2
 
 vim.cmd "colorscheme cyberdream"
 
-vim.diagnostic.config {
+vim.diagnostic.config({
+  virtual_lines = false,
   underline = true,
-}
+  signs = true,
+  severity_sort = true,
+  update_in_insert = false,
+  float = {
+    border = "rounded",
+    source = "if_many",
+  },
+})
 
 vim.o.autocomplete = false
 vim.opt.completeopt = { "menuone", "noselect", "fuzzy" }
