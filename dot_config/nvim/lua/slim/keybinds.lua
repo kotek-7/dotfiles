@@ -47,6 +47,3 @@ vim.keymap.set("n", "<leader><S-o>", "<S-o><esc>")
 
 -- C-zを無効化
 vim.keymap.set("n", "<C-z>", "<NOP>")
-
--- 保存
-vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr>", { desc = "Save File" })

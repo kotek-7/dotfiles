@@ -3,9 +3,6 @@ local vscode = require "vscode"
 -- leaderキー
 vim.g.mapleader = " "
 
--- Clear search with <esc>
-vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
-
 vim.keymap.set("n", "<leader><leader>", "<Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>")
 
 -- buffer切り替え
@@ -36,10 +33,6 @@ vim.keymap.set("n", "<leader><S-o>", "<S-o><esc>")
 
 -- C-zを無効化
 vim.keymap.set("n", "<C-z>", "<NOP>")
-
--- 置換
-vim.keymap.set("x", "<leader>r", 'y:%s/<C-r><C-r>"//g')
-vim.keymap.set("n", "<leader>r", 'yiw:%s/<C-r><C-r>"//g')
 
 -- ctrl-d, ctrl-u
 vim.keymap.set("n", "<C-d>", "20j")
