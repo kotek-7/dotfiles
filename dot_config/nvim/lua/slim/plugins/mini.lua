@@ -157,7 +157,7 @@ return {
   -- Navigation
   {
     "nvim-mini/mini.jump",
-    lazy = true,
+    lazy = false,
     opts = {},
   },
   {
