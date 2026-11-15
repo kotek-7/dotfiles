@@ -1,3 +1,4 @@
+-- lazy.nvim loading
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system {
@@ -32,21 +33,18 @@ end
 
 vim.g.slim_mode = true
 
-if vim.g.neovide then
-  require "base/neovide_options"
-  require "base/neovide_keybinds"
-elseif vim.g.vscode then
-  require "base/vscode_keybinds"
-  require("lazy").setup("vscode_plugins", opts)
-  require "base/vscode_options"
+if vim.g.vscode then
+  require "vscode/keybinds"
+  require("lazy").setup("vscode/plugins", opts)
+  require "vscode/options"
 elseif vim.g.slim_mode then
-  require "base/slim_keybinds"
-  require("lazy").setup("slim_plugins", opts)
-  require "base/slim_options"
+  require "slim/keybinds"
+  require("lazy").setup("slim/plugins", opts)
+  require "slim/options"
 else
-  require "base/rich_keybinds"
-  require("lazy").setup("rich_plugins", opts)
-  require "base/rich_options"
+  require "rich/keybinds"
+  require("lazy").setup("rich/plugins", opts)
+  require "rich/options"
 end
 
 local function file_exists(path)
@@ -59,10 +57,10 @@ local function file_exists(path)
   end
 end
 
-if file_exists "base/override_options.lua" then
-  require "base/override_options"
+if file_exists "override/options.lua" then
+  require "override/options"
 end
 
-if file_exists "base/override_keybinds.lua" then
-  require "base/override_keybinds"
+if file_exists "override/keybinds.lua" then
+  require "override/keybinds"
 end
