@@ -25,6 +25,10 @@ BEGIN {
 {
     has_input = 1
 
+    if (section == "features" && $0 ~ /^[[:space:]]*multi_agent[[:space:]]*=/) {
+        next
+    }
+
     if (section == "" && $0 ~ /^[[:space:]]*notify[[:space:]]*=/) {
         next
     }
