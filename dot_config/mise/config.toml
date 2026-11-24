@@ -1,7 +1,7 @@
 [tools]
 aube = "latest"
 bun = "latest"
-"cargo:eza" = "latest"
+eza = "latest"
 "cargo:fd-find" = "latest"
 "cargo:ripgrep" = { version = "latest", features = ["pcre2"] }
 "cargo:sd" = "latest"
@@ -34,7 +34,7 @@ pnpm = "latest"
 postgres = "latest"
 ruby = "3.4.4"
 rust = "latest"
-tmux = "latest"
+"aqua:tmux/tmux-builds" = "latest"
 usage = "latest"
 uv = "latest"
 
