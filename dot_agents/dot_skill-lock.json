@@ -1,0 +1,117 @@
+{
+  "version": 3,
+  "skills": {
+    "browser-use": {
+      "source": "browser-use/browser-use",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/browser-use/browser-use.git",
+      "skillPath": "skills/browser-use/SKILL.md",
+      "skillFolderHash": "09dfc3fe42cf475e60dd749b36dc5c365eeef4fa",
+      "installedAt": "2026-05-07T04:42:53.260Z",
+      "updatedAt": "2026-11-11T04:58:06.723Z"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "76a98a285cb0434f3d39e1a873823556330e398b",
+      "installedAt": "2026-05-07T04:42:59.385Z",
+      "updatedAt": "2026-11-09T06:47:11.796Z"
+    },
+    "grilling": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/productivity/grilling/SKILL.md",
+      "skillFolderHash": "f551b6e0d219fdda0b6abf277f8f915b3127d1e9",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-08-31T16:04:52.733Z",
+      "updatedAt": "2026-11-09T06:47:11.851Z"
+    },
+    "design-taste-frontend": {
+      "source": "Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/Leonxlnx/taste-skill.git",
+      "skillPath": "skills/taste-skill/SKILL.md",
+      "skillFolderHash": "90f92ba7a3ce514cf85a2809583712dbd14106ea",
+      "installedAt": "2026-10-12T12:50:25.325Z",
+      "updatedAt": "2026-11-09T06:47:19.855Z"
+    },
+    "humanizer": {
+      "source": "blader/humanizer",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/blader/humanizer.git",
+      "skillPath": "SKILL.md",
+      "skillFolderHash": "b48c832f0f809c1b5658edbb838c2521b72f2413",
+      "pluginName": "humanizer",
+      "installedAt": "2026-10-12T12:52:38.922Z",
+      "updatedAt": "2026-11-11T04:58:06.844Z"
+    },
+    "imozuru": {
+      "source": "MaryCache/imozuru",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MaryCache/imozuru.git",
+      "skillPath": "skills/imozuru/SKILL.md",
+      "skillFolderHash": "9a21db7dd5337061b6d0258e244e771237cef989",
+      "installedAt": "2026-10-19T12:05:40.623Z",
+      "updatedAt": "2026-11-09T06:47:20.091Z"
+    },
+    "yomiyasu": {
+      "source": "nanaism/yomiyasu",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/nanaism/yomiyasu.git",
+      "skillPath": "skills/yomiyasu/SKILL.md",
+      "skillFolderHash": "2485218908a08e6a74a73ea9c9d0ad5404c2b713",
+      "installedAt": "2026-11-09T06:48:37.312Z",
+      "updatedAt": "2026-11-11T17:20:40.668Z"
+    },
+    "stack-diagram": {
+      "source": "caru-ini/stack-diagram",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/caru-ini/stack-diagram.git",
+      "skillPath": "skills/stack-diagram/SKILL.md",
+      "skillFolderHash": "573ed9a5d8bf50f22ce49ee724bbc78066e13383",
+      "installedAt": "2026-11-10T07:53:45.474Z",
+      "updatedAt": "2026-11-10T07:53:45.474Z"
+    },
+    "critical-thinking": {
+      "source": "coji/natural-japanese",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/coji/natural-japanese.git",
+      "skillPath": "skills/critical-thinking/SKILL.md",
+      "skillFolderHash": "ef6b9e911c818d6858adfd86015c952d2a902807",
+      "installedAt": "2026-11-13T14:16:18.627Z",
+      "updatedAt": "2026-11-13T14:16:18.627Z"
+    },
+    "natural-japanese": {
+      "source": "coji/natural-japanese",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/coji/natural-japanese.git",
+      "skillPath": "skills/natural-japanese/SKILL.md",
+      "skillFolderHash": "241c4686386f82ceeb049ab72aec93f5106446fb",
+      "installedAt": "2026-11-13T14:16:18.629Z",
+      "updatedAt": "2026-11-13T14:16:18.629Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "cline",
+    "codex",
+    "cursor",
+    "droid",
+    "fx",
+    "gemini-cli",
+    "github-copilot",
+    "kilo",
+    "kimi-code-cli",
+    "opencode",
+    "pi",
+    "warp",
+    "zed",
+    "claude-code"
+  ]
+}

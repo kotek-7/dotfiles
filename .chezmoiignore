@@ -5,3 +5,7 @@
 .agents/skills/impeccable/scripts/bin/**
 .claude/skills/impeccable/scripts/bin
 .claude/skills/impeccable/scripts/bin/**
+
+# Python bytecode cache
+**/__pycache__
+**/__pycache__/**
